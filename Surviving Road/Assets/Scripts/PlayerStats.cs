@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Player
+public static class PlayerStats
 {
-
+    public static Item[] item;
 }
