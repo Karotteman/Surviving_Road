@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public Animator transitionAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +24,15 @@ public class GameManager : MonoBehaviour
         LoadScene("HomeScene");
     }
 
-    public void LoadScene(string sceneName) 
+    public void LoadScene(string sceneName)
     {
+        StartCoroutine(LoadTransition(sceneName));
+    }
+
+    IEnumerator LoadTransition(string sceneName)
+    {
+        transitionAnim.SetTrigger("end");
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(sceneName);
     }
 
