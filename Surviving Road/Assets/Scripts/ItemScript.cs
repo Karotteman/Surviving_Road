@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemScript : MonoBehaviour
 {
+    public UIManager uiManager;
     public Item assignedItem = null;
     // Start is called before the first frame update
     void Start()
@@ -19,10 +20,19 @@ public class ItemScript : MonoBehaviour
 
     public void MouseOver()
     {
-        if(assignedItem != null)
+        if (assignedItem != null)
         {
-            print(assignedItem.Name);
+            uiManager.DisplayItemDescritpion(
+                assignedItem.Name,
+                assignedItem.Description,
+                GetComponentInParent<RectTransform>().transform.position,
+                GetComponentInParent<RectTransform>().transform.localScale.x
+                );
         }
+    }
+    public void MouseExit()
+    {
+        uiManager.DisplayItemDescritpion();
     }
 
     public void OnClick()

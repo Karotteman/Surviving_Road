@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
     public GameObject containerPanel;
     public GameObject sleepWarningPanel;
+    public Transform itemDescriptionPanel;
     public Text timeLeft;
 
     public InventoryManager inventoryManager;
@@ -28,6 +29,18 @@ public class UIManager : MonoBehaviour
         timeLeft.text = PlayerStats.health + " H";
     }
 
+    public void DisplayItemDescritpion(string name, string description, Vector2 position, float sizeButton)
+    {
+        itemDescriptionPanel.gameObject.SetActive(true);
+        itemDescriptionPanel.position = position + new Vector2(2 * sizeButton / 3, sizeButton / 2);
+        itemDescriptionPanel.GetChild(0).GetComponent<Text>().text = name;
+        itemDescriptionPanel.GetChild(2).GetComponent<Text>().text = description;
+    }
+    public void DisplayItemDescritpion()
+    {
+        itemDescriptionPanel.gameObject.SetActive(false);
+    }
+
     public void DisplayContainer(string type)
     {
         Dictionary<Item, int> container = inventoryManager.GetContainer(type);
@@ -36,6 +49,7 @@ public class UIManager : MonoBehaviour
         {
             sleepWarningPanel.SetActive(false);
         }
+        print(containerPanel.name);
 
         containerPanel.SetActive(true);
         CleanContainer();
@@ -46,7 +60,7 @@ public class UIManager : MonoBehaviour
         foreach (KeyValuePair<Item, int> entry in container)
         {
             Image itemRenderer = containerStock.GetChild(i).GetChild(0).GetComponent<Image>();
-            Sprite currentSprite = Resources.Load<Sprite>("Items/" + entry.Key.Image);
+            Sprite currentSprite = Resources.Load<Sprite>("Images/Items/" + entry.Key.Image);
 
             itemRenderer.sprite = currentSprite;
             var tempColor = itemRenderer.color;
@@ -55,6 +69,7 @@ public class UIManager : MonoBehaviour
 
             itemRenderer.preserveAspect = true;
             itemRenderer.GetComponentInParent<ItemScript>().assignedItem = entry.Key;
+            itemRenderer.GetComponentInParent<Button>().interactable = true;
 
             if (entry.Key.Consumable)
             {
@@ -95,6 +110,7 @@ public class UIManager : MonoBehaviour
             tempColor.a = 0;
             itemRenderer.color = tempColor;
             itemRenderer.transform.GetChild(0).GetComponent<Text>().text = "";
+            itemRenderer.GetComponentInParent<Button>().interactable = false;
             if (itemRenderer.GetComponentInParent<ItemScript>().assignedItem != null)
             {
                 itemRenderer.GetComponentInParent<ItemScript>().assignedItem = null;
