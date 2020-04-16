@@ -15,6 +15,7 @@ public class JsonManager : MonoBehaviour
         PlayerStats.item = res.item;
         PlayerStats.roads = res.road;
         PlayerStats.events = res.events;
+        PlayerStats.results = res.results;
     }
 
     // Update is called once per frame
@@ -30,7 +31,8 @@ public class JsonManager : MonoBehaviour
         {
             inventoryManager.Pickup(item);
         }
-        PlayerStats.health = res.health;
+        PlayerStats.health = 1;
+        PlayerStats.energy = res.health;
         PlayerStats.sickness = res.sickness;
     }
 }

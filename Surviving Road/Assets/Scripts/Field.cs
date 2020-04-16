@@ -45,9 +45,10 @@ public class Event
 [Serializable]
 public class Result
 {
-    public string Type, Text;
+    public string Type, Name;
     public int Health, Energy;
     public bool FightWin, ExtraItemGain, ItemLoss;
+    public string[] Text;
 }
 [Serializable]
 public class Field
