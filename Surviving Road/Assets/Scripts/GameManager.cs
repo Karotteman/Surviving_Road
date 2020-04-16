@@ -8,25 +8,30 @@ public class GameManager : MonoBehaviour
 {
     public Animator transitionAnim;
 
-    Ressources ressources;
+    public JsonManager jsonManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        print(PlayerStats.roads[0].Name);
+        print(PlayerStats.roads[0].LootRate);
     }
 
-    public void NewGame() 
+    public void NewGame()
     {
-        ressources = JsonUtility.FromJson<Ressources>(File.ReadAllText("./Assets/Scripts/Json/item.json"));
-        PlayerStats.item = ressources.item;
-
+        PlayerStats.foodStock = new Dictionary<Item, int>();
+        PlayerStats.WaterStock = new Dictionary<Item, int>();
+        PlayerStats.medpackStock = new Dictionary<Item, int>();
+        PlayerStats.antibioticStock = new Dictionary<Item, int>();
+        PlayerStats.weaponStock = new Dictionary<Item, int>();
+        PlayerStats.protectionStock = new Dictionary<Item, int>();
+        jsonManager.NewSave();
         LoadScene("HomeScene");
     }
 

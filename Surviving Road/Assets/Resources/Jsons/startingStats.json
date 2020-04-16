@@ -1,0 +1,102 @@
+{
+   "item": [
+      {
+         "Name": null,
+         "Type": "Food",
+         "Description": null,
+         "Consumable": true,
+         "Fuel": null,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": null,
+         "Damage": null,
+         "Protection": null,
+         "Image": "food can"
+      },
+      {
+         "Name": null,
+         "Type": "Water",
+         "Description": null,
+         "Consumable": true,
+         "Fuel": null,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": null,
+         "Damage": null,
+         "Protection": null,
+         "Image": null
+      },
+      {
+         "Name": null,
+         "Type": "Medpack",
+         "Description": null,
+         "Consumable": true,
+         "Fuel": null,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": null,
+         "Damage": null,
+         "Protection": null,
+         "Image": null
+      },
+      {
+         "Name": null,
+         "Type": "Antibiotic",
+         "Description": null,
+         "Consumable": true,
+         "Fuel": null,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": null,
+         "Damage": null,
+         "Protection": null,
+         "Image": null
+      },
+      {
+         "Name": null,
+         "Type": "Weapon",
+         "Description": null,
+         "Consumable": false,
+         "Fuel": null,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": null,
+         "Damage": null,
+         "Protection": null,
+         "Image": null
+      },
+      {
+         "Name": null,
+         "Type": "Protection",
+         "Description": null,
+         "Consumable": false,
+         "Fuel": null,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": null,
+         "Damage": null,
+         "Protection": null,
+         "Image": null
+      },
+      {
+         "Name": null,
+         "Type": "Fuel",
+         "Description": null,
+         "Consumable": true,
+         "Fuel": 20,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": null,
+         "Damage": null,
+         "Protection": null,
+         "Image": null
+      }
+   ]
+}
