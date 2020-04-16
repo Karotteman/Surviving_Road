@@ -37,9 +37,9 @@ public class LootRate
 public class Event
 {
     public string Type, actionAccept, actionRefused, actionLeave;
-    public int TimeCost, InvestigateTimeCost;
+    public int TimeCostA, TimeCostInvest;
     public bool Fight, ActionSearch, Intentions;
-    public string[] Dialogues;
+    public string[] Dialogue;
     public int[] ActionInvestigates;
 }
 [Serializable]

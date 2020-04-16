@@ -20,6 +20,8 @@ public class RoadScript : MonoBehaviour
 
     public void MouseOver()
     {
+        print(assignedRoad.Name);
+        print(assignedRoad.FuelMin + " ||| "+ assignedRoad.FuelMax + " ||| "+ assignedRoad.TimeMin + " ||| " + assignedRoad.TimeMax);
         if (assignedRoad != null)
         {
             uiManager.DisplayDescritpion(
@@ -38,9 +40,6 @@ public class RoadScript : MonoBehaviour
 
     public void OnClick()
     {
-        if (assignedRoad != null)
-        {
-            print("click");
-        }
+        PlayerStats.actualEvent = PlayerStats.events[Random.Range(0, PlayerStats.events.Length)];
     }
 }

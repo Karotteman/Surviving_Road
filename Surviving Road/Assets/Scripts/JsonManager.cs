@@ -14,6 +14,7 @@ public class JsonManager : MonoBehaviour
         Field res = JsonUtility.FromJson<Field>(File.ReadAllText("./Assets/Resources/Jsons/ressources.json"));
         PlayerStats.item = res.item;
         PlayerStats.roads = res.road;
+        PlayerStats.events = res.events;
     }
 
     // Update is called once per frame

@@ -12,12 +12,14 @@ public class UIManager : MonoBehaviour
     public Transform itemDescriptionPanel;
     public Text timeLeft;
     public Transform roads;
-
     public InventoryManager inventoryManager;
 
-    Transform containerStock;
 
-    //public bool SetContainerDisplay { set { containerPanel.active; } }
+    [Header("Events UI")]
+    public Text dialogues;
+    public EventManager eventManager;
+
+    Transform containerStock;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +39,21 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         timeLeft.text = PlayerStats.health + " H";
+
+        switch (SceneManager.GetActiveScene().name) //Le switch vérifie que t'es dans la bonne scene
+        {
+            case "EventScene":
+                DisplayDialogues(); //Fonction pour afficher les dialogues
+                break;
+        }
     }
+
+    /////////////////////////// DOMINIC ///////////////////////////////////
+    void DisplayDialogues()
+    {
+        dialogues.text = PlayerStats.actualEvent.Dialogue[0];
+    }
+    /////////////////////////// DOMINIC ///////////////////////////////////
 
     void DisplayRoads()
     {
@@ -45,8 +61,11 @@ public class UIManager : MonoBehaviour
         int i = 0;
         foreach (Road option in PlayerStats.locationOptions)
         {
-            roads.GetChild(i).gameObject.SetActive(true);
-            roads.GetChild(i).GetChild(0).GetComponent<Text>().text = option.Name;
+            Transform tempRoad = roads.GetChild(i);
+
+            tempRoad.GetComponent<RoadScript>().assignedRoad = option;
+            tempRoad.gameObject.SetActive(true);
+            tempRoad.GetChild(0).GetComponent<Text>().text = option.Name;
             i++;
         }
     }
@@ -69,8 +88,8 @@ public class UIManager : MonoBehaviour
     public void DisplayDescritpion(string description, int fuel, int time, Vector2 position, float sizeButton)
     {
         itemDescriptionPanel.gameObject.SetActive(true);
-        itemDescriptionPanel.position = position + new Vector2(2 * sizeButton / 3, sizeButton / 2);
-        itemDescriptionPanel.GetChild(0).GetComponent<Text>().text = "-"+ fuel +" Fuel    "+time+"Hour";
+        itemDescriptionPanel.position = position + new Vector2(4 * -sizeButton / 3, sizeButton / 2);
+        itemDescriptionPanel.GetChild(0).GetComponent<Text>().text = "-"+ fuel +" Fuel  -"+time+" Hour";
         itemDescriptionPanel.GetChild(2).GetComponent<Text>().text = description;
     }
     public void DisplayDescritpion()

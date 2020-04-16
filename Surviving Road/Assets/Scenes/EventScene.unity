@@ -509,12 +509,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 399683885}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.40613276, y: -0.8201542, z: -9.297083}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.27305803, y: 0.53882873, z: 341.94318}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1800216815}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &399683887
 MonoBehaviour:
@@ -766,7 +766,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &706669440
 GameObject:
@@ -964,8 +964,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1189834562}
   m_HandleRect: {fileID: 1189834561}
   m_Direction: 2
-  m_Value: 0.50000006
-  m_Size: 0.21259843
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1034,8 +1034,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962941081}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.07, y: -1.14, z: 0}
-  m_LocalScale: {x: 0.601284, y: 0.601284, z: 0.601284}
+  m_LocalPosition: {x: 4.19, y: 0.74, z: 0}
+  m_LocalScale: {x: 0.17204724, y: 0.17204724, z: 0.17204724}
   m_Children: []
   m_Father: {fileID: 1565849009}
   m_RootOrder: 0
@@ -1077,12 +1077,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 354c7d13cc81bef458edad88ad4b9a55, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e666b23d6b061404ebfe2819a5339293, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 22.50629, y: 15.550001}
+  m_Size: {x: 24.802656, y: 35.079998}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1162,6 +1162,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189834560}
   m_CullTransparentMesh: 0
+--- !u!1 &1257463903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1257463904}
+  - component: {fileID: 1257463905}
+  m_Layer: 0
+  m_Name: EventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1257463904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257463903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1800216815}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1257463905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257463903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfac67ce40eea1f4392c24e25aa648f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1325245439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,6 +1216,7 @@ GameObject:
   - component: {fileID: 1325245440}
   - component: {fileID: 1325245442}
   - component: {fileID: 1325245441}
+  - component: {fileID: 1325245443}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1194,10 +1238,10 @@ RectTransform:
   m_Father: {fileID: 12167853}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 1000}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -134.99962}
+  m_SizeDelta: {x: 1810, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1325245441
 MonoBehaviour:
@@ -1232,107 +1276,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Neque sodales ut etiam sit.
-    Lacus luctus accumsan tortor posuere ac ut. Tortor aliquam nulla facilisi cras
-    fermentum. Ultrices sagittis orci a scelerisque purus semper eget duis. Pretium
-    nibh ipsum consequat nisl vel. Nullam vehicula ipsum a arcu cursus vitae. Quis
-    commodo odio aenean sed adipiscing diam. Ullamcorper morbi tincidunt ornare massa
-    eget egestas purus. Nunc congue nisi vitae suscipit tellus mauris a. Sit amet
-    consectetur adipiscing elit duis tristique sollicitudin nibh sit. In aliquam sem
-    fringilla ut morbi tincidunt augue interdum velit. Mauris pharetra et ultrices
-    neque ornare aenean euismod elementum. Nibh tortor id aliquet lectus proin nibh
-    nisl condimentum id. Id venenatis a condimentum vitae sapien pellentesque habitant
-    morbi tristique. Euismod lacinia at quis risus sed vulputate odio ut enim. Venenatis
-    cras sed felis eget velit aliquet. Etiam non quam lacus suspendisse faucibus.
-    Lectus urna duis convallis convallis tellus id interdum. Consequat nisl vel pretium
-    lectus quam id.\r\n\r\nVel risus commodo viverra maecenas. Eget egestas purus
-    viverra accumsan in. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque
-    elit. Arcu odio ut sem nulla pharetra diam sit amet. Proin nibh nisl condimentum
-    id venenatis a condimentum vitae. Purus in mollis nunc sed id semper. Tincidunt
-    dui ut ornare lectus sit. Justo donec enim diam vulputate ut pharetra sit amet.
-    Vulputate sapien nec sagittis aliquam malesuada. Quam quisque id diam vel. Ipsum
-    suspendisse ultrices gravida dictum fusce ut. Urna porttitor rhoncus dolor purus.\r\n\r\nNulla
-    at volutpat diam ut venenatis tellus in metus. Porttitor massa id neque aliquam
-    vestibulum morbi. Sem et tortor consequat id. Dolor sed viverra ipsum nunc aliquet
-    bibendum enim facilisis. Morbi leo urna molestie at elementum eu facilisis sed.
-    Magnis dis parturient montes nascetur ridiculus mus. Tortor at auctor urna nunc
-    id. Nam at lectus urna duis convallis convallis tellus. Sem nulla pharetra diam
-    sit amet. A diam sollicitudin tempor id. Et tortor consequat id porta nibh venenatis
-    cras sed. Nisi est sit amet facilisis. Dui nunc mattis enim ut tellus elementum
-    sagittis vitae. Nunc sed augue lacus viverra.\r\n\r\nElementum sagittis vitae
-    et leo duis ut diam quam nulla. Ornare arcu odio ut sem nulla pharetra. Mattis
-    aliquam faucibus purus in. Dui ut ornare lectus sit amet est. Turpis egestas maecenas
-    pharetra convallis posuere morbi leo urna molestie. Fermentum dui faucibus in
-    ornare quam viverra orci. Nullam eget felis eget nunc lobortis. Nisl vel pretium
-    lectus quam. Nunc aliquet bibendum enim facilisis gravida neque convallis. Aliquam
-    faucibus purus in massa tempor nec. Laoreet suspendisse interdum consectetur libero
-    id. Imperdiet nulla malesuada pellentesque elit eget gravida cum. Turpis tincidunt
-    id aliquet risus. Morbi tempus iaculis urna id volutpat. Quam lacus suspendisse
-    faucibus interdum. Nec nam aliquam sem et.\r\n\r\nAt quis risus sed vulputate
-    odio ut enim blandit volutpat. Tellus cras adipiscing enim eu turpis egestas pretium
-    aenean. Venenatis cras sed felis eget velit aliquet sagittis id consectetur. Ut
-    sem nulla pharetra diam sit. Eget dolor morbi non arcu risus quis varius. Ac tincidunt
-    vitae semper quis lectus. Euismod quis viverra nibh cras. Sed felis eget velit
-    aliquet sagittis id. Eu feugiat pretium nibh ipsum consequat nisl vel pretium
-    lectus. Eget lorem dolor sed viverra ipsum. Nisi est sit amet facilisis magna
-    etiam tempor orci. Risus nec feugiat in fermentum. Amet mauris commodo quis imperdiet
-    massa tincidunt nunc. Aliquam vestibulum morbi blandit cursus. Sapien faucibus
-    et molestie ac feugiat. Sed sed risus pretium quam vulputate dignissim suspendisse
-    in est.\r\n\r\nVarius morbi enim nunc faucibus a pellentesque sit amet porttitor.
-    Vitae et leo duis ut diam quam nulla porttitor. Commodo odio aenean sed adipiscing.
-    Consectetur adipiscing elit pellentesque habitant. Non nisi est sit amet. In nisl
-    nisi scelerisque eu ultrices vitae auctor. Donec et odio pellentesque diam. Odio
-    ut enim blandit volutpat. Id neque aliquam vestibulum morbi blandit cursus risus
-    at. Non tellus orci ac auctor augue mauris augue neque. Integer eget aliquet nibh
-    praesent tristique magna.\r\n\r\nAmet consectetur adipiscing elit pellentesque.
-    Scelerisque felis imperdiet proin fermentum leo vel orci porta non. Ut faucibus
-    pulvinar elementum integer enim neque volutpat. Amet tellus cras adipiscing enim
-    eu turpis egestas. Mauris sit amet massa vitae tortor condimentum lacinia. Erat
-    nam at lectus urna duis convallis. Id venenatis a condimentum vitae sapien. Senectus
-    et netus et malesuada fames ac turpis egestas integer. Elementum eu facilisis
-    sed odio morbi quis commodo odio. Nulla facilisi morbi tempus iaculis urna id
-    volutpat lacus laoreet. Urna porttitor rhoncus dolor purus non enim. Sem integer
-    vitae justo eget magna fermentum iaculis eu non. Eget aliquet nibh praesent tristique
-    magna sit amet purus gravida. Augue ut lectus arcu bibendum at varius. Auctor
-    urna nunc id cursus metus. Etiam tempor orci eu lobortis elementum nibh. Feugiat
-    in fermentum posuere urna nec tincidunt praesent semper feugiat. Semper auctor
-    neque vitae tempus.\r\n\r\nConvallis tellus id interdum velit laoreet id. Sagittis
-    orci a scelerisque purus semper. Mi proin sed libero enim sed faucibus turpis
-    in. Dignissim convallis aenean et tortor at risus viverra adipiscing at. Lacus
-    viverra vitae congue eu consequat. Volutpat ac tincidunt vitae semper. At lectus
-    urna duis convallis convallis tellus id. Vel pharetra vel turpis nunc eget lorem.
-    In ante metus dictum at. Amet nisl suscipit adipiscing bibendum est ultricies
-    integer quis. Lacus luctus accumsan tortor posuere ac ut consequat. Iaculis urna
-    id volutpat lacus laoreet non curabitur gravida. Quis blandit turpis cursus in
-    hac habitasse platea dictumst.\r\n\r\nEst sit amet facilisis magna etiam tempor
-    orci eu lobortis. Vulputate enim nulla aliquet porttitor lacus luctus accumsan
-    tortor. Justo laoreet sit amet cursus sit amet. Aliquet nec ullamcorper sit amet
-    risus. Tempor orci dapibus ultrices in iaculis nunc sed augue lacus. Massa enim
-    nec dui nunc mattis enim ut tellus elementum. Semper auctor neque vitae tempus
-    quam pellentesque nec nam aliquam. Imperdiet massa tincidunt nunc pulvinar sapien
-    et ligula ullamcorper. Mauris a diam maecenas sed enim ut sem viverra. In aliquam
-    sem fringilla ut morbi tincidunt. Sem integer vitae justo eget magna fermentum
-    iaculis eu. Elementum nibh tellus molestie nunc non blandit. Mattis ullamcorper
-    velit sed ullamcorper.\r\n\r\nOrnare aenean euismod elementum nisi quis eleifend
-    quam adipiscing vitae. Aenean et tortor at risus viverra adipiscing at. Nunc pulvinar
-    sapien et ligula ullamcorper malesuada proin libero. Sapien et ligula ullamcorper
-    malesuada proin libero nunc consequat interdum. Sagittis eu volutpat odio facilisis
-    mauris sit amet. Pellentesque eu tincidunt tortor aliquam nulla facilisi. Venenatis
-    lectus magna fringilla urna porttitor rhoncus dolor. Faucibus in ornare quam viverra
-    orci sagittis eu volutpat. Semper risus in hendrerit gravida rutrum quisque non
-    tellus orci. Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Auctor eu
-    augue ut lectus. Feugiat pretium nibh ipsum consequat nisl vel.\r\n\r\nVitae turpis
-    massa sed elementum. Justo nec ultrices dui sapien eget. Eu non diam phasellus
-    vestibulum lorem sed risus ultricies tristique. Condimentum mattis pellentesque
-    id nibh tortor id. Fames ac turpis egestas integer eget. At urna condimentum mattis
-    pellentesque id. Volutpat blandit aliquam etiam erat velit scelerisque in dictum
-    non. Cras tincidunt lobortis feugiat vivamus. Sit amet luctus venenatis lectus
-    magna fringilla. Tellus integer feugiat scelerisque varius morbi enim nunc faucibus.
-    Viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis. Sociis
-    natoque penatibus et magnis dis. Eu non diam phasellus vestibulum lorem sed risus.
-    Morbi leo urna molestie at elementum. Vitae tortor condimentum lacinia quis vel
-    eros donec ac."
+  m_Text: Dialogues
 --- !u!222 &1325245442
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1341,6 +1285,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325245439}
   m_CullTransparentMesh: 0
+--- !u!114 &1325245443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325245439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1741964061, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &1408531414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,7 +1445,7 @@ Transform:
   m_Children:
   - {fileID: 962941082}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1589266870
 GameObject:
@@ -1663,7 +1621,7 @@ RectTransform:
   - {fileID: 1408531415}
   - {fileID: 1636626991}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1826,8 +1784,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739627320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.326, z: 0}
-  m_LocalScale: {x: 0.51167804, y: 0.51167804, z: 0.51167804}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.93, y: 0.93, z: 0.93}
   m_Children: []
   m_Father: {fileID: 1761781612}
   m_RootOrder: 0
@@ -1869,7 +1827,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5931de7962b04ab4ca8ea6e1ded226a0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85da41eeeaeaf30479b45e8e88361568, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1908,6 +1866,39 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1739627321}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1800216814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1800216815}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1800216815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800216814}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.13307473, y: -1.3589829, z: -351.24026}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 399683886}
+  - {fileID: 2129835970}
+  - {fileID: 1257463904}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2168,12 +2159,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129835969}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.40613276, y: -0.8201542, z: -9.297083}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.27305803, y: 0.53882873, z: 341.94318}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1800216815}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2129835971
 MonoBehaviour:
@@ -2193,3 +2184,5 @@ MonoBehaviour:
   timeLeft: {fileID: 235237044}
   roads: {fileID: 0}
   inventoryManager: {fileID: 0}
+  dialogues: {fileID: 1325245441}
+  eventManager: {fileID: 1257463905}

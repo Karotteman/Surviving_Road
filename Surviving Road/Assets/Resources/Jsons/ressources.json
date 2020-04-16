@@ -356,5 +356,137 @@
      ,"FuelMax":4
      ,"Background":"imageName"
      }
+   ],
+   "events": [
+      {
+         "Type": "Trade",
+         "Dialogue": ["Morning Stranger, care to trade some items?", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Fight": false,
+         "ActionSearch": true,
+         "TimeCostA": 2,
+         "Intentions": true,
+         "ActionInvestigates": [25,60,100],
+         "TimeCostInvest": 1,
+         "actionAccept": "Good",
+         "actionRefused": "Neutral",
+         "actionLeave": "Neutral"
+      },
+      {
+         "Type": "Trade",
+         "Dialogue": ["Morning Stranger, care to trade some items?", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Fight": false,
+         "ActionSearch": true,
+         "TimeCostA": 2,
+         "Intentions": false,
+         "ActionInvestigates": [25,60,100],
+         "TimeCostInvest": 1,
+         "actionAccept": "Bad",
+         "actionRefused": "Neutral",
+         "actionLeave": "Neutral"
+      },
+      {
+         "Type": "WantHelp",
+         "Dialogue": ["Can you spare some items? I need to help my family.", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Fight": false,
+         "ActionSearch": true,
+         "TimeCostA": 2,
+         "Intentions": true,
+         "ActionInvestigates": [25,60,100],
+         "TimeCostInvest": 1,
+         "actionAccept": "Good",
+         "actionRefused": "Neutral",
+         "actionLeave": "Neutral"
+      },
+      {
+         "Type": "WantHelp",
+         "Dialogue": ["Can you spare some items? I need to help my family.", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Fight": false,
+         "ActionSearch": true,
+         "TimeCostA": 2,
+         "Intentions": false,
+         "ActionInvestigates": [25,60,100],
+         "TimeCostInvest": 1,
+         "actionAccept": "Bad",
+         "actionRefused": "Neutral",
+         "actionLeave": "Neutral"
+      },
+      {
+         "Type": "Toll",
+         "Dialogue": ["There's a fee for snooping around here. Pay up or leave.", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Fight": false,
+         "ActionSearch": false,
+         "TimeCostA": 1,
+         "Intentions": true,
+         "ActionInvestigates": [25,60,100],
+         "TimeCostInvest": 1,
+         "actionAccept": "Good",
+         "actionRefused": "BadBluff",
+         "actionLeave": "Neutral"
+      },
+      {
+         "Type": "Toll",
+         "Dialogue": ["There's a fee for snooping around here. Pay up or leave.", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Fight": false,
+         "ActionSearch": false,
+         "TimeCostA": 1,
+         "Intentions": false,
+         "ActionInvestigates": [25,60,100],
+         "TimeCostInvest": 1,
+         "actionAccept": "Bad",
+         "actionRefused": "GoodBluff",
+         "actionLeave": "Neutral"
+      },
+      {
+         "Type": "Agressive",
+         "Dialogue": ["HEY! Go away it is our area. You better back off or else...", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Fight": false,
+         "ActionSearch": false,
+         "TimeCostA": 1,
+         "Intentions": true,
+         "ActionInvestigates": [25,60,100],
+         "TimeCostInvest": 1,
+         "actionAccept": "Neutral",
+         "actionRefused": "BadBluff",
+         "actionLeave": "Neutral"
+      },
+      {
+         "Type": "Agressive",
+         "Dialogue": ["HEY! Go away it is our area. You better back off or else...", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Fight": false,
+         "ActionSearch": false,
+         "TimeCostA": 1,
+         "Intentions": false,
+         "ActionInvestigates": [25,60,100],
+         "TimeCostInvest": 1,
+         "actionAccept": "Neutral",
+         "actionRefused": "GoodBluff",
+         "actionLeave": "Neutral"
+      },
+      {
+         "Type": "Attack",
+         "Dialogue": ["You shouldn't have come here..."],
+         "Fight": true,
+         "ActionSearch": false,
+         "TimeCostA": 1,
+         "Intentions": true,
+         "ActionInvestigates": null,
+         "TimeCostInvest": null,
+         "actionAccept": null,
+         "actionRefused": null,
+         "actionLeave": null
+      },
+      {
+         "Type": "None",
+         "Dialogue": ["I don't see anyone here. Thank God.","It's quiet, too quit. Let's hurry up."],
+         "Fight": null,
+         "ActionSearch": true,
+         "TimeCostA": 2,
+         "Intentions": null,
+         "ActionInvestigates": null,
+         "TimeCostInvest": null,
+         "actionAccept": null,
+         "actionRefused": null,
+         "actionLeave": null
+      }
    ]
 }

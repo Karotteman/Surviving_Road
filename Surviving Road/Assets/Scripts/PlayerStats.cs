@@ -25,4 +25,5 @@ public static class PlayerStats
 
     public static Road location;
     public static List<Road> locationOptions;
+    public static Event actualEvent;
 }
