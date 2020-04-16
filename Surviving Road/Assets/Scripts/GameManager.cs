@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(PlayerStats.roads[0].LootRate);
         if (PlayerStats.inGame && PlayerStats.health <= 0)
         {
             GameOver();

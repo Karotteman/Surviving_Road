@@ -22,7 +22,7 @@ public class ItemScript : MonoBehaviour
     {
         if (assignedItem != null)
         {
-            uiManager.DisplayItemDescritpion(
+            uiManager.DisplayDescritpion(
                 assignedItem.Name,
                 assignedItem.Description,
                 GetComponentInParent<RectTransform>().transform.position,
@@ -32,7 +32,7 @@ public class ItemScript : MonoBehaviour
     }
     public void MouseExit()
     {
-        uiManager.DisplayItemDescritpion();
+        uiManager.DisplayDescritpion();
     }
 
     public void OnClick()

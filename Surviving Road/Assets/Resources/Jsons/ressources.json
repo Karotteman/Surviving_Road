@@ -295,19 +295,66 @@
          "Image": "swat gear"
       }
    ],
-   "road": [
+   "road" : [
       {
-         "Name": "Gas station",
-         "Hint": "Good place to find some fuel.",
-         "Background": "imageName",
-         "LootRate": 
-         {
-            "Fuel":70,
-            "Water":50,
-            "Antibiotic":20,
-            "Weapon":5
-         }
-
-      }
+      "Name":"Gas station"
+     ,"Description":"Good place to find some fuel."
+     ,"LootRate":[{"Loot":"Fuel","DropRate":70},{"Loot":"Water","DropRate":50},{"Loot":"Antibiotic","DropRate":20},{"Loot":"Weapon","DropRate":5}]
+     ,"TimeMin":2
+     ,"TimeMax":8
+     ,"FuelMin":2
+     ,"FuelMax":4
+     ,"Background":"imageName"
+     },
+      {
+      "Name":"Abandonned House"
+     ,"Description":"I may be able to find some gear and food there. "
+     ,"LootRate":[{"Loot":"Protection","DropRate":70},{"Loot":"Food","DropRate":50},{"Loot":"Medpack","DropRate":20},{"Loot":"Fuel","DropRate":5}]
+     ,"TimeMin":2
+     ,"TimeMax":8
+     ,"FuelMin":2
+     ,"FuelMax":4
+     ,"Background":"imageName"
+     },
+      {
+      "Name":"Old Durg Store"
+     ,"Description":"I hope there's some medical supplies left. "
+     ,"LootRate":[{"Loot":"Antibiotic","DropRate":70},{"Loot":"Medpack","DropRate":50},{"Loot":"Weapon","DropRate":20},{"Loot":"Fuel","DropRate":5}]
+     ,"TimeMin":2
+     ,"TimeMax":8
+     ,"FuelMin":2
+     ,"FuelMax":4
+     ,"Background":"imageName"
+     },
+      {
+      "Name":"Supermarket"
+     ,"Description":"I'll at least find some food... "
+     ,"LootRate":[{"Loot":"Food","DropRate":70},{"Loot":"Water","DropRate":50},{"Loot":"Protection","DropRate":20},{"Loot":"Antibiotic","DropRate":5}]
+     ,"TimeMin":2
+     ,"TimeMax":8
+     ,"FuelMin":2
+     ,"FuelMax":4
+     ,"Background":"imageName"
+     },
+      {
+      "Name":"Motel"
+     ,"Description":"Best chance to find a bit of everything. "
+     ,"LootRate":[{"Loot":"Fuel","DropRate":50},{"Loot":"Antibiotic","DropRate":50},{"Loot":"Weapon","DropRate":50},{"Loot":"Food","DropRate":50}]
+     ,"TimeMin":1
+     ,"TimeMax":4
+     ,"FuelMin":1
+     ,"FuelMax":2
+     ,"Background":"imageName"
+     },
+      {
+      "Name":"Beet Farm"
+     ,"Description":"I've heard crazy farmers had a lot of weapons."
+     ,"LootRate":[{"Loot":"Weapon","DropRate":70},{"Loot":"Food","DropRate":50},{"Loot":"Water","DropRate":20},{"Loot":"Fuel","DropRate":5}]
+     ,"TimeMin":2
+     ,"TimeMax":8
+     ,"FuelMin":2
+     ,"FuelMax":4
+     ,"Background":"imageName"
+     }
    ]
 }

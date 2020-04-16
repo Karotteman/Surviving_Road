@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -10,6 +11,7 @@ public class UIManager : MonoBehaviour
     public GameObject sleepWarningPanel;
     public Transform itemDescriptionPanel;
     public Text timeLeft;
+    public Transform roads;
 
     public InventoryManager inventoryManager;
 
@@ -20,7 +22,15 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        containerStock = containerPanel.transform.GetChild(3);
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "HomeScene":
+                containerStock = containerPanel.transform.GetChild(3);
+                break;
+            case "RoadScene":
+                DisplayRoads();
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -29,14 +39,41 @@ public class UIManager : MonoBehaviour
         timeLeft.text = PlayerStats.health + " H";
     }
 
-    public void DisplayItemDescritpion(string name, string description, Vector2 position, float sizeButton)
+    void DisplayRoads()
+    {
+        CleanRoads();
+        int i = 0;
+        foreach (Road option in PlayerStats.locationOptions)
+        {
+            roads.GetChild(i).gameObject.SetActive(true);
+            roads.GetChild(i).GetChild(0).GetComponent<Text>().text = option.Name;
+            i++;
+        }
+    }
+
+    void CleanRoads()
+    {
+        for(int i = 0; i < roads.childCount;i++)
+        {
+            roads.GetChild(i).gameObject.SetActive(false);
+        }
+    }
+
+    public void DisplayDescritpion(string name, string description, Vector2 position, float sizeButton)
     {
         itemDescriptionPanel.gameObject.SetActive(true);
         itemDescriptionPanel.position = position + new Vector2(2 * sizeButton / 3, sizeButton / 2);
         itemDescriptionPanel.GetChild(0).GetComponent<Text>().text = name;
         itemDescriptionPanel.GetChild(2).GetComponent<Text>().text = description;
     }
-    public void DisplayItemDescritpion()
+    public void DisplayDescritpion(string description, int fuel, int time, Vector2 position, float sizeButton)
+    {
+        itemDescriptionPanel.gameObject.SetActive(true);
+        itemDescriptionPanel.position = position + new Vector2(2 * sizeButton / 3, sizeButton / 2);
+        itemDescriptionPanel.GetChild(0).GetComponent<Text>().text = "-"+ fuel +" Fuel    "+time+"Hour";
+        itemDescriptionPanel.GetChild(2).GetComponent<Text>().text = description;
+    }
+    public void DisplayDescritpion()
     {
         itemDescriptionPanel.gameObject.SetActive(false);
     }

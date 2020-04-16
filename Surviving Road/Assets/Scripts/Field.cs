@@ -23,8 +23,31 @@ public class Item
 [Serializable]
 public class Road
 {
-    public string Name, Hint, Description, Background;
-    public Dictionary<string, int> LootRate;
+    public string Name, Description, Background;
+    public int TimeMin, TimeMax, FuelMin, FuelMax;
+    public LootRate[] LootRate;
+}
+[Serializable]
+public class LootRate
+{
+    public string Loot;
+    public int DropRate;
+}
+[Serializable]
+public class Event
+{
+    public string Type, actionAccept, actionRefused, actionLeave;
+    public int TimeCost, InvestigateTimeCost;
+    public bool Fight, ActionSearch, Intentions;
+    public string[] Dialogues;
+    public int[] ActionInvestigates;
+}
+[Serializable]
+public class Result
+{
+    public string Type, Text;
+    public int Health, Energy;
+    public bool FightWin, ExtraItemGain, ItemLoss;
 }
 [Serializable]
 public class Field
@@ -33,4 +56,6 @@ public class Field
     public float sickness;
     public Item[] item;
     public Road[] road;
+    public Event[] events;
+    public Result[] results;
 }
