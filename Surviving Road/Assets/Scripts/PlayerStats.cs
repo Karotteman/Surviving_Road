@@ -4,8 +4,9 @@ using UnityEngine;
 
 public static class PlayerStats
 {
+    public static bool inGame;
     public static int health;
-    public static int sickness;
+    public static float sickness;
     public static int fuelStock;
     public static Item equippedWeapon;
     public static Item equippedProtection;

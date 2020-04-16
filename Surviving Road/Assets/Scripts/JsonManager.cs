@@ -24,10 +24,12 @@ public class JsonManager : MonoBehaviour
 
     public void NewSave()
     {
-        Field res = JsonUtility.FromJson<Field>(File.ReadAllText("./Assets/Resources/Jsons/startingStats.json"));
+        Field res = JsonUtility.FromJson<Field>(File.ReadAllText("./Assets/Resources/Jsons/initialState.json"));
         foreach(Item item in res.item)
         {
             inventoryManager.Pickup(item);
         }
+        PlayerStats.health = res.health;
+        PlayerStats.sickness = res.sickness;
     }
 }

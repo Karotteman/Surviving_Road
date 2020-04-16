@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
     public GameObject containerPanel;
     public GameObject sleepWarningPanel;
+    public Text timeLeft;
 
     public InventoryManager inventoryManager;
 
@@ -24,7 +25,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        timeLeft.text = PlayerStats.health + " H";
     }
 
     public void DisplayContainer(string type)
@@ -35,9 +36,9 @@ public class UIManager : MonoBehaviour
         {
             sleepWarningPanel.SetActive(false);
         }
-        CleanContainer();
 
         containerPanel.SetActive(true);
+        CleanContainer();
         containerPanel.transform.GetChild(0).GetComponent<Text>().text = container.Keys.ToArray()[0].Type;
 
         
@@ -46,16 +47,18 @@ public class UIManager : MonoBehaviour
         {
             Image itemRenderer = containerStock.GetChild(i).GetChild(0).GetComponent<Image>();
             Sprite currentSprite = Resources.Load<Sprite>("Items/" + entry.Key.Image);
+
             itemRenderer.sprite = currentSprite;
             var tempColor = itemRenderer.color;
             tempColor.a = 1;
             itemRenderer.color = tempColor;
+
             itemRenderer.preserveAspect = true;
+            itemRenderer.GetComponentInParent<ItemScript>().assignedItem = entry.Key;
 
             if (entry.Key.Consumable)
             {
-                print(entry.Value);
-                //itemRenderer.transform.GetChild(0).GetComponent<Text>().text = entry.Value.ToString();
+                itemRenderer.transform.GetChild(0).GetComponent<Text>().text = entry.Value.ToString();
             }
             i++;
         }
@@ -91,7 +94,11 @@ public class UIManager : MonoBehaviour
             var tempColor = itemRenderer.color;
             tempColor.a = 0;
             itemRenderer.color = tempColor;
-            //itemRenderer.transform.GetChild(0).GetComponent<Text>().text = entry.Value.ToString();
+            itemRenderer.transform.GetChild(0).GetComponent<Text>().text = "";
+            if (itemRenderer.GetComponentInParent<ItemScript>().assignedItem != null)
+            {
+                itemRenderer.GetComponentInParent<ItemScript>().assignedItem = null;
+            }
         }
     }
 }

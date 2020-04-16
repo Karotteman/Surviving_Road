@@ -21,10 +21,15 @@ public class GameManager : MonoBehaviour
     {
         print(PlayerStats.roads[0].Name);
         print(PlayerStats.roads[0].LootRate);
+        if (PlayerStats.inGame && PlayerStats.health <= 0)
+        {
+            GameOver();
+        }
     }
 
     public void NewGame()
     {
+        PlayerStats.inGame = true;
         PlayerStats.foodStock = new Dictionary<Item, int>();
         PlayerStats.WaterStock = new Dictionary<Item, int>();
         PlayerStats.medpackStock = new Dictionary<Item, int>();
@@ -52,5 +57,9 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    void GameOver() { }
+    void GameOver() 
+    {
+        print("GAME OVER");
+        PlayerStats.inGame = false;
+    }
 }

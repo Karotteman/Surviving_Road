@@ -300,7 +300,14 @@
          "Name": "Gas station",
          "Hint": "Good place to find some fuel.",
          "Background": "imageName",
-         "LootRate": "{""Fuel"":70,""Water"":50,""Antibiotic"":20,""Weapon"":5}"
+         "LootRate": 
+         {
+            "Fuel":70,
+            "Water":50,
+            "Antibiotic":20,
+            "Weapon":5
+         }
+
       }
    ]
 }
