@@ -46,15 +46,15 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void TimeSpent(float time, [Optional] bool sleeping)
+    public void TimeSpent(int time, [Optional] bool sleeping)
     {
         if (sleeping)
         {
-            PlayerStats.energy -= time * PlayerStats.sickness;
+            PlayerStats.energy -= (int)Mathf.Round(time * PlayerStats.sickness);
         }
         else
         {
-            PlayerStats.energy -= time * PlayerStats.sickness + (time - PlayerStats.health * time);
+            PlayerStats.energy -= (int)Mathf.Round(time * PlayerStats.sickness + (time - PlayerStats.health * time));
         }
         if (PlayerStats.health < 1)
         {
@@ -66,23 +66,44 @@ public class PlayerManager : MonoBehaviour
     {
         if (tempItem.Consumable)
         {
-            PlayerStats.health += tempItem.Health;
-            SetHealth( tempItem.Energy);
-            PlayerStats.sickness += tempItem.Sickness;
+            //print(tempItem.Health+ "H & E"+ tempItem.Energy);
+            PlayerStats.energy += tempItem.Energy;
+            SetHealth( tempItem.Health);
+            SetSickness(tempItem.Sickness);
             inventoryManager.Remove(tempItem);
+        }
+        else
+        {
+            switch (tempItem.Type)
+            {
+                case "Weapon":
+                    PlayerStats.equippedWeapon = tempItem;
+                    break;
+                case "Protection":
+                    PlayerStats.equippedProtection = tempItem;
+                    break;
+            }
         }
     }
 
-    void SetHealth(float health)
+    public void SetHealth(float health)
     {
         PlayerStats.health += health;
         if (PlayerStats.health > 1)
         {
             PlayerStats.health = 1;
         }
-        else if(PlayerStats.health < 0)
+        else if (PlayerStats.health < 0)
         {
             PlayerStats.health = 0;
+        }
+    }
+    public void SetSickness(float sickness)
+    {
+        PlayerStats.sickness += sickness;
+        if (PlayerStats.sickness < 0.1)
+        {
+            PlayerStats.sickness = 0.1f;
         }
     }
 }

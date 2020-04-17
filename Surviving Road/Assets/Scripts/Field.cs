@@ -5,7 +5,8 @@ using System.Collections.Generic;
 public class Item
 {
     public string Name, Type, Description, Image;
-    public int Fuel, Health, Sickness, Energy, Space, Damage, Protection;
+    public int Fuel, Energy, Space, Damage, Protection;
+    public float Health, Sickness;
     public bool Consumable;
 
     public override int GetHashCode()
@@ -46,7 +47,8 @@ public class Event
 public class Result
 {
     public string Type, Name;
-    public int Health, Energy;
+    public float Health;
+    public int Energy;
     public bool FightWin, ExtraItemGain, ItemLoss;
     public string[] Text;
 }

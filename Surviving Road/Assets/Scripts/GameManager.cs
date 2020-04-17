@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         print("SICK : " + PlayerStats.sickness);
+        print("Fuel : " + PlayerStats.fuelStock);
     }
 
     public void NewGame()

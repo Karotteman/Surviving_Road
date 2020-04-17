@@ -112,12 +112,10 @@ public class InventoryManager : MonoBehaviour
             {
                 if (GetContainer(item.Type)[item] > 1)
                 {
-                    print("decrease");
                     GetContainer(item.Type)[item]--;
                 }
                 else
                 {
-                    print("remove");
                     GetContainer(item.Type).Remove(item);
                 }
             }

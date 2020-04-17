@@ -19,6 +19,21 @@ public class ItemScript : MonoBehaviour
         
     }
 
+    public void MouseOver(string type)
+    {
+        switch (type)
+        {
+            case "Fuel":
+                uiManager.DisplayDescritpion(
+                    PlayerStats.fuelStock+" Fuel",
+                    "",
+                    GetComponentInParent<RectTransform>().transform.position,
+                    GetComponentInParent<RectTransform>().transform.localScale.x
+                    );
+                break;
+        }
+    }
+
     public void MouseOver()
     {
         if (assignedItem != null)

@@ -5,16 +5,13 @@ using UnityEngine;
 public class RoadScript : MonoBehaviour
 {
     public UIManager uiManager;
+    public RoadManager roadManager;
     Road assignedRoad = null;
 
-    int fuelUse;
-    int timeUse;
 
     public void AddRoad(Road tempRoad)
     {
         assignedRoad = tempRoad;
-        fuelUse = Random.Range(assignedRoad.FuelMin, assignedRoad.FuelMax);
-        timeUse = Random.Range(assignedRoad.TimeMin, assignedRoad.TimeMax);
     }
 
     // Update is called once per frame
@@ -27,10 +24,12 @@ public class RoadScript : MonoBehaviour
     {
         if (assignedRoad != null)
         {
+            int fuelCost = PlayerStats.locationOptions[assignedRoad][0];
+            int timeCost = PlayerStats.locationOptions[assignedRoad][1];
             uiManager.DisplayDescritpion(
                 assignedRoad.Description,
-                fuelUse,
-                timeUse,
+                fuelCost,
+                (int)Mathf.Round(timeCost * PlayerStats.sickness + (timeCost - PlayerStats.health * timeCost)),
                 GetComponentInParent<RectTransform>().transform.position,
                 GetComponentInParent<RectTransform>().transform.localScale.x
                 );
@@ -43,6 +42,10 @@ public class RoadScript : MonoBehaviour
 
     public void OnClick()
     {
-        PlayerStats.actualEvent = PlayerStats.events[Random.Range(0, PlayerStats.events.Length)];
+        if (assignedRoad != null)
+        {
+            PlayerStats.actualEvent = PlayerStats.events[Random.Range(0, PlayerStats.events.Length)];
+            roadManager.UseRoad(PlayerStats.locationOptions[assignedRoad][0], PlayerStats.locationOptions[assignedRoad][1]);
+        }
     }
 }

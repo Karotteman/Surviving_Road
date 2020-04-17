@@ -11,7 +11,7 @@ public static class PlayerStats
     public static Result[] results;
 
     public static float health;
-    public static float energy;
+    public static int energy;
     public static float sickness;
 
     public static Item equippedWeapon;
@@ -25,6 +25,6 @@ public static class PlayerStats
     public static Dictionary<Item, int> protectionStock;
 
     public static Road actualLocation;
-    public static List<Road> locationOptions;
+    public static Dictionary<Road, int[]> locationOptions;
     public static Event actualEvent;
 }

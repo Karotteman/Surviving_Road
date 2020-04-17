@@ -68,13 +68,19 @@ public class UIManager : MonoBehaviour
     {
         CleanRoads();
         int i = 0;
-        foreach (Road option in PlayerStats.locationOptions)
+        foreach (KeyValuePair<Road,int[]> option in PlayerStats.locationOptions)
         {
             Transform tempRoad = roads.GetChild(i);
 
-            tempRoad.GetComponent<RoadScript>().AddRoad(option);
+            tempRoad.GetComponent<RoadScript>().AddRoad(option.Key);
             tempRoad.gameObject.SetActive(true);
-            tempRoad.GetChild(0).GetComponent<Text>().text = option.Name;
+            tempRoad.GetChild(0).GetComponent<Text>().text = option.Key.Name;
+
+            if(option.Value[0] > PlayerStats.fuelStock)
+            {
+                tempRoad.GetComponent<Button>().interactable = false;
+            }
+
             i++;
         }
     }
@@ -84,6 +90,7 @@ public class UIManager : MonoBehaviour
         for(int i = 0; i < roads.childCount;i++)
         {
             roads.GetChild(i).gameObject.SetActive(false);
+            roads.GetChild(i).GetComponent<Button>().interactable = true;
         }
     }
 
@@ -97,7 +104,7 @@ public class UIManager : MonoBehaviour
     public void DisplayDescritpion(string description, int fuel, int time, Vector2 position, float sizeButton)
     {
         itemDescriptionPanel.gameObject.SetActive(true);
-        itemDescriptionPanel.position = position + new Vector2(4 * -sizeButton / 3, sizeButton / 2);
+        itemDescriptionPanel.position = position + new Vector2(4 * sizeButton / 3, sizeButton / 2);
         itemDescriptionPanel.GetChild(0).GetComponent<Text>().text = "-"+ fuel +" Fuel  -"+time+" Hour";
         itemDescriptionPanel.GetChild(2).GetComponent<Text>().text = description;
     }
@@ -128,6 +135,10 @@ public class UIManager : MonoBehaviour
             {
                 itemRenderer.transform.GetChild(0).GetComponent<Text>().text = entry.Value.ToString();
             }
+            else if(entry.Key.Equals(PlayerStats.equippedProtection) || entry.Key.Equals(PlayerStats.equippedWeapon))
+            {
+                itemRenderer.transform.GetChild(0).GetComponent<Text>().text = "E";
+            }
             i++;
         }
     }
@@ -141,31 +152,9 @@ public class UIManager : MonoBehaviour
         }
 
         containerPanel.SetActive(true);
-        CleanContainer();
         containerPanel.transform.GetChild(0).GetComponent<Text>().text = container.Keys.ToArray()[0].Type;
 
-
-        int i = 0;
-        foreach (KeyValuePair<Item, int> entry in container)
-        {
-            Image itemRenderer = containerStock.GetChild(i).GetChild(0).GetComponent<Image>();
-            Sprite currentSprite = Resources.Load<Sprite>("Images/Items/" + entry.Key.Image);
-
-            itemRenderer.sprite = currentSprite;
-            var tempColor = itemRenderer.color;
-            tempColor.a = 1;
-            itemRenderer.color = tempColor;
-
-            itemRenderer.preserveAspect = true;
-            itemRenderer.GetComponentInParent<ItemScript>().assignedItem = entry.Key;
-            itemRenderer.GetComponentInParent<Button>().interactable = true;
-
-            if (entry.Key.Consumable)
-            {
-                itemRenderer.transform.GetChild(0).GetComponent<Text>().text = entry.Value.ToString();
-            }
-            i++;
-        }
+        RefreshContainer(container);
     }
 
     public void DisplaySleepWarning()
