@@ -1081,6 +1081,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db47217ebff92f44bd33cc7a0b45ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainTheme: {fileID: 8300000, guid: dad899b88e56c3e44ba0057e9a1cdb9b, type: 3}
+  battleTheme: {fileID: 8300000, guid: 4d6107c3a399e4840ac0feb7c6fec6cd, type: 3}
 --- !u!4 &1386026549
 Transform:
   m_ObjectHideFlags: 0

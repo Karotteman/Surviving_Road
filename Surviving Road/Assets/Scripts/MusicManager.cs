@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+    public AudioClip mainTheme;
+    public AudioClip battleTheme;
     AudioSource audioSource;
 
     private void Awake()
@@ -21,5 +23,18 @@ public class MusicManager : MonoBehaviour
     public void StopMusic()
     {
         audioSource.Stop();
+    }
+
+    public void SwitchMusic()
+    {
+        if (audioSource.clip == mainTheme)
+        {
+            audioSource.clip = battleTheme;
+        }
+        else
+        {
+            audioSource.clip = mainTheme;
+        }
+        PlayMusic();
     }
 }
