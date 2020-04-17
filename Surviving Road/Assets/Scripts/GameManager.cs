@@ -19,11 +19,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(PlayerStats.health);
-        if (PlayerStats.inGame && PlayerStats.health <= 0)
-        {
-            GameOver();
-        }
+
     }
 
     public void NewGame()
@@ -56,9 +52,9 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    void GameOver() 
+    public void GameOver() 
     {
-        print("GAME OVER");
+        LoadScene("DeathScene");
         PlayerStats.inGame = false;
     }
 }
