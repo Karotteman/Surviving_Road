@@ -106,7 +106,7 @@ public class UIManager : MonoBehaviour
             tempRoad.gameObject.SetActive(true);
             tempRoad.GetChild(0).GetComponent<Text>().text = option.Key.Name;
 
-            if(option.Value[0] > PlayerStats.fuelStock)
+            if(option.Value[0] > PlayerStats.fuelStock || option.Value[1] > PlayerStats.energy)
             {
                 tempRoad.GetComponent<Button>().interactable = false;
             }
@@ -182,7 +182,7 @@ public class UIManager : MonoBehaviour
         }
 
         containerPanel.SetActive(true);
-        containerPanel.transform.GetChild(0).GetComponent<Text>().text = container.Keys.ToArray()[0].Type;
+        containerPanel.transform.GetChild(0).GetComponent<Text>().text = type;
 
         RefreshContainer(container);
     }
@@ -250,6 +250,7 @@ public class UIManager : MonoBehaviour
         {
             textToDisplay += " 1 " + item.Name;
         }
+        if (loot[0] == null) textToDisplay += " nothing";
         textToDisplay += ".";
         dialogues.text = textToDisplay;
     }

@@ -189,7 +189,7 @@
          "Description": "Essential to travel for more resources. ",
          "DropRate": 100,
          "Consumable": true,
-         "Fuel": 40,
+         "Fuel": 12,
          "Health": 0,
          "Sickness": 0,
          "Energy": 0,

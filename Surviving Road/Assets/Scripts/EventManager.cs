@@ -64,12 +64,16 @@ public class EventManager : MonoBehaviour
     {
         Item ennemiWeapon = PlayerStats.GetRandomItem("Weapon");
         Item ennemiProtection = PlayerStats.GetRandomItem("Protection");
-        float damage = ennemiWeapon.Damage;
-        if(PlayerStats.equippedProtection != null) damage -= PlayerStats.equippedProtection.Protection;
-        if (damage < 0) damage = 0;
-        playerManager.SetHealth(-damage);
-        if (PlayerStats.equippedWeapon != null) ennemiLife -= PlayerStats.equippedWeapon.Damage;
-        else ennemiLife -= 0.1f;
+        float damageGiven;
+        float damageTaken = ennemiWeapon.Damage;
+        if (PlayerStats.equippedProtection != null) damageTaken -= PlayerStats.equippedProtection.Protection;
+        if (damageTaken < 0) damageTaken = 0;
+        playerManager.SetHealth(-damageTaken);
+
+        if (PlayerStats.equippedWeapon != null) damageGiven = PlayerStats.equippedWeapon.Damage;
+        else damageGiven = 0.1f;
+        ennemiLife -= damageGiven;
+
         playerManager.StillAlive();
         if (ennemiLife <= 0)
         {
@@ -77,6 +81,20 @@ public class EventManager : MonoBehaviour
             spriteR.gameObject.SetActive(false);
             GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().SwitchMusic("main");
         }
+        else
+        {
+            string feedback;
+            if (damageGiven > damageTaken)
+            {
+                feedback = PlayerStats.results[4].Text[Random.Range(0, PlayerStats.results[4].Text.Length)];
+            }
+            else
+            {
+                feedback = PlayerStats.results[3].Text[Random.Range(0, PlayerStats.results[3].Text.Length)];
+            }
+            uIManager.DisplayInvestigationDialogues(feedback);
+        }
+
     }
 
     /// <summary>

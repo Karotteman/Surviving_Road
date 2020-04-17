@@ -1200,6 +1200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2084200349}
   - component: {fileID: 2084200350}
+  - component: {fileID: 2084200351}
   m_Layer: 0
   m_Name: JsonManager
   m_TagString: Untagged
@@ -1231,5 +1232,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee846196cad2bb74e8ca4de77b9aa316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2084200351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084200348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299711569b6ecfe479a00eb0ff089d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -27,7 +27,18 @@ public class PlayerManager : MonoBehaviour
     {
         if (PlayerStats.health <= 0 || PlayerStats.energy <= 0)
         {
-            gameManager.GameOver(); 
+            gameManager.GameOver();
+        }
+        else
+        {
+            if (PlayerStats.energy <= 10 || PlayerStats.health <= 0.25)
+            {
+                GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().SwitchMusic("battle");
+            }
+            if (PlayerStats.energy >= 10 && PlayerStats.health >= 0.25)
+            {
+                GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().SwitchMusic("main");
+            }
         }
     }
 
@@ -52,7 +63,6 @@ public class PlayerManager : MonoBehaviour
         {
             SetHealth( time * regen, false);
         }
-        CheckState();
         StillAlive();
     }
 
@@ -78,7 +88,7 @@ public class PlayerManager : MonoBehaviour
                     break;
             }
         }
-        CheckState();
+        StillAlive();
     }
 
     public void SetHealth(float health, [Optional] bool checkState)
@@ -92,7 +102,7 @@ public class PlayerManager : MonoBehaviour
         {
             PlayerStats.health = 0;
         }
-        if(checkState)CheckState();
+        if(checkState)StillAlive();
     }
     public void SetSickness(float sickness)
     {
@@ -100,18 +110,6 @@ public class PlayerManager : MonoBehaviour
         if (PlayerStats.sickness < 0.1)
         {
             PlayerStats.sickness = 0.1f;
-        }
-    }
-
-    public void CheckState()
-    {
-        if (PlayerStats.energy <= 10 || PlayerStats.health <= 0.25)
-        {
-            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().SwitchMusic("battle");
-        }
-        if (PlayerStats.energy >= 10 && PlayerStats.health >= 0.25)
-        {
-            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().SwitchMusic("main");
         }
     }
 }
