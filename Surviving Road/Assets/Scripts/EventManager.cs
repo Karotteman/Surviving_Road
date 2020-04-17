@@ -49,12 +49,12 @@ public class EventManager : MonoBehaviour
         if(pokerFace >= PlayerStats.actualEvent.ActionInvestigates[0])
         {
             string truth = PlayerStats.actualEvent.InvestigationDialogue[1];
-            uIManager.DisplayInvestigationDialogues(truth);
+            uIManager.DisplayDialogues(truth);
         }
         else
         {
             string truth = PlayerStats.actualEvent.InvestigationDialogue[0];
-            uIManager.DisplayInvestigationDialogues(truth);
+            uIManager.DisplayDialogues(truth);
         }
     }
 
@@ -94,7 +94,7 @@ public class EventManager : MonoBehaviour
             {
                 feedback = PlayerStats.results[3].Text[Random.Range(0, PlayerStats.results[3].Text.Length)];
             }
-            uIManager.DisplayInvestigationDialogues(feedback);
+            uIManager.DisplayDialogues(feedback);
         }
         uIManager.DisplayButtons();
     }
@@ -102,9 +102,28 @@ public class EventManager : MonoBehaviour
     /// <summary>
     /// Reaction to pnj, generate another reaction
     /// </summary>
-    public void Reaction()
+    public void Reaction(string reaction)
     {
-
+        string feedbacks;
+        switch (reaction)
+        {
+            case "accept":
+                switch (PlayerStats.actualEvent.actionAccept)
+                {
+                    case "Good":
+                        break;
+                    case "Neutral":
+                        break;
+                    case "Bad":
+                        break;
+                }
+                break;
+            case "refuse":
+                break;
+            case "leave":
+                break;
+        }
+        //uIManager.DisplayDialogues(feedbacks);
     }
 
     /// <summary>

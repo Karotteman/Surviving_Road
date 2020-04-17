@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour
             {
                 GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().SwitchMusic("battle");
             }
-            if (PlayerStats.energy >= 10 && PlayerStats.health >= 0.25)
+            else if (PlayerStats.energy > 10 && PlayerStats.health > 0.25)
             {
                 GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().SwitchMusic("main");
             }

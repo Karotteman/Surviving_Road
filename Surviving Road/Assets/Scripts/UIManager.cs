@@ -70,6 +70,7 @@ public class UIManager : MonoBehaviour
 
     public void DisplayButtons()
     {
+        print(PlayerStats.actualEvent.Type + " is " + PlayerStats.actualEvent.ActionSearch);
         //Active le bouton search si actionSearch est vrai
         buttonHolder.GetChild(0).gameObject.SetActive(PlayerStats.actualEvent.ActionSearch);
 
@@ -229,13 +230,17 @@ public class UIManager : MonoBehaviour
     /// <summary>
     /// Une variation de DisplayDialogues, t'en occupe pas, t'en as pas besoin, mais tu peux me demander si jamais tu veux savoir commment je fais ça ;)
     /// </summary>
-    /// <param name="dialogueType">Le type de dialogue souhaité</param>
-    public void DisplayDialogues(string dialogueType)
+    /// <param name="dialogue">Le type de dialogue souhaité</param>
+    public void DisplayDialogues(string dialogue)
     {
-        switch (dialogueType)
+        switch (dialogue)
         {
             case "WIP":
                 dialogues.text = "WORK IN PROGRESS";
+                break;
+            default:
+                string textToDisplay = dialogue;
+                dialogues.text = textToDisplay;
                 break;
         }
     }
@@ -252,12 +257,6 @@ public class UIManager : MonoBehaviour
         }
         if (loot == null || loot.Length == 0) textToDisplay += " nothing";
         textToDisplay += ".";
-        dialogues.text = textToDisplay;
-    }
-
-    public void DisplayInvestigationDialogues(string truth)
-    {
-        string textToDisplay = truth;
         dialogues.text = textToDisplay;
     }
 }
