@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour
     //Dictionary<Item, int> currentContainer;
     int stackLimit = 10;
     string currentTypeContainer;
-    string[] containerType = { "Medpack", "Antibiotic", "Protection", "Weapon", "Food", "Water" };
+    string[] containerType = { "Medpack", "Antibiotic", "Protection", "Weapon", "Water", "Food" };
 
     // Use this for initialization
     void Start()

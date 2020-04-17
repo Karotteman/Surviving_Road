@@ -216,10 +216,13 @@ public class UIManager : MonoBehaviour
     /// Une variation de DisplayDialogues, t'en occupe pas, t'en as pas besoin, mais tu peux me demander si jamais tu veux savoir commment je fais ça ;)
     /// </summary>
     /// <param name="dialogueType">Le type de dialogue souhaité</param>
-    void DisplayDialogues(string dialogueType)
+    public void DisplayDialogues(string dialogueType)
     {
         switch (dialogueType)
         {
+            case "WIP":
+                dialogues.text = "WORK IN PROGRESS";
+                break;
         }
     }
     /// <summary>
