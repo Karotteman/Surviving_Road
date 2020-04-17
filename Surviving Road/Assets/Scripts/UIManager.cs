@@ -250,7 +250,7 @@ public class UIManager : MonoBehaviour
         {
             textToDisplay += " 1 " + item.Name;
         }
-        if (loot[0] == null) textToDisplay += " nothing";
+        if (loot == null || loot.Length == 0) textToDisplay += " nothing";
         textToDisplay += ".";
         dialogues.text = textToDisplay;
     }
