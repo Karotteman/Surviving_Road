@@ -1,5 +1,6 @@
 {
-   "health" : 24,
+   "energy" : 24,
+   "health" : 0.5,
    "sickness" : 1,
    "item": [
       {

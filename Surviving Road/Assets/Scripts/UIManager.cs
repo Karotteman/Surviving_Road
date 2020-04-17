@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     [Header("Events UI")]
     public Text dialogues;
     public EventManager eventManager;
+    public Transform buttonHolder;
 
     Transform containerStock;
 
@@ -38,12 +39,13 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeLeft.text = PlayerStats.health + " H";
+        timeLeft.text = PlayerStats.energy + "H  "+ (int)Mathf.Round(PlayerStats.health*100)+"Life";
 
         switch (SceneManager.GetActiveScene().name) //Le switch vérifie que t'es dans la bonne scene
         {
             case "EventScene":
                 DisplayDialogues(); //Fonction pour afficher les dialogues
+                DisplayButtons(); //Fonction pour afficher les boutons
                 break;
         }
     }
@@ -52,6 +54,13 @@ public class UIManager : MonoBehaviour
     void DisplayDialogues()
     {
         dialogues.text = PlayerStats.actualEvent.Dialogue[0];
+    }
+
+    void DisplayButtons()
+    {
+        //Active le bouton search si actionSearch est vrai
+        buttonHolder.GetChild(0).gameObject.SetActive(PlayerStats.actualEvent.ActionSearch);
+        print("Actual Event : Action Search : "+PlayerStats.actualEvent.ActionSearch);
     }
     /////////////////////////// DOMINIC ///////////////////////////////////
 

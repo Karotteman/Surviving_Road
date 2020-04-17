@@ -1517,7 +1517,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Faire le (bon) choix 1 - Retour
+  m_Text: Search area
 --- !u!222 &1589266873
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1916,7 +1916,7 @@ GameObject:
   - component: {fileID: 1846360586}
   - component: {fileID: 1846360589}
   m_Layer: 5
-  m_Name: Button
+  m_Name: SearchButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2186,3 +2186,4 @@ MonoBehaviour:
   inventoryManager: {fileID: 0}
   dialogues: {fileID: 1325245441}
   eventManager: {fileID: 1257463905}
+  buttonHolder: {fileID: 1408531415}

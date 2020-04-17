@@ -31,8 +31,8 @@ public class JsonManager : MonoBehaviour
         {
             inventoryManager.Pickup(item);
         }
-        PlayerStats.health = 1;
-        PlayerStats.energy = res.health;
+        PlayerStats.health = res.health;
+        PlayerStats.energy = res.energy;
         PlayerStats.sickness = res.sickness;
     }
 }

@@ -53,7 +53,8 @@ public class Result
 [Serializable]
 public class Field
 {
-    public int health;
+    public float health;
+    public int energy;
     public float sickness;
     public Item[] item;
     public Road[] road;
