@@ -381,7 +381,8 @@
    "events": [
       {
          "Type": "Trade",
-         "Dialogue": ["Morning Stranger, care to trade some items?", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Dialogue": ["Morning Stranger, care to trade some items?","Hoddy! If you want we can exchange some items"],
+         "InvestigationDialogue": ["You cannot tell if they are saying the truth.","You are certain they are not lying."],
          "Fight": false,
          "ActionSearch": true,
          "TimeCostA": 2,
@@ -394,7 +395,8 @@
       },
       {
          "Type": "Trade",
-         "Dialogue": ["Morning Stranger, care to trade some items?", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Dialogue": ["Morning Stranger, care to trade some items?","Hoddy! If you want we can exchange some items"],
+         "InvestigationDialogue": ["You cannot tell if they are saying the truth.","They are bluffing and it's now really obvious."],
          "Fight": false,
          "ActionSearch": true,
          "TimeCostA": 2,
@@ -407,7 +409,8 @@
       },
       {
          "Type": "WantHelp",
-         "Dialogue": ["Can you spare some items? I need to help my family.", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Dialogue": ["Can you spare some items? I need to help my family.","I Beg you to help me, I'll die if you don't"],
+         "InvestigationDialogue": ["You cannot tell if they are saying the truth.", "You are certain they are not lying."],
          "Fight": false,
          "ActionSearch": true,
          "TimeCostA": 2,
@@ -420,7 +423,8 @@
       },
       {
          "Type": "WantHelp",
-         "Dialogue": ["Can you spare some items? I need to help my family.", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Dialogue": ["Can you spare some items? I need to help my family.","I Beg you to help me, I'll die if you don't"],
+         "InvestigationDialogue": ["You cannot tell if they are saying the truth.","They are bluffing and it's now really obvious."],
          "Fight": false,
          "ActionSearch": true,
          "TimeCostA": 2,
@@ -433,7 +437,8 @@
       },
       {
          "Type": "Toll",
-         "Dialogue": ["There's a fee for snooping around here. Pay up or leave.", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Dialogue": ["There's a fee for snooping around here. Pay up or leave.", "If you wish to search this place, you'll need to give us something"],
+         "InvestigationDialogue": ["You cannot tell if they are saying the truth.", "You are certain they are not lying."],
          "Fight": false,
          "ActionSearch": false,
          "TimeCostA": 1,
@@ -446,7 +451,8 @@
       },
       {
          "Type": "Toll",
-         "Dialogue": ["There's a fee for snooping around here. Pay up or leave.", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Dialogue": ["There's a fee for snooping around here. Pay up or leave.", "If you wish to search this place, you'll need to give us something"],
+         "InvestigationDialogue": ["You cannot tell if they are saying the truth.","They are bluffing and it's now really obvious."],
          "Fight": false,
          "ActionSearch": false,
          "TimeCostA": 1,
@@ -459,7 +465,8 @@
       },
       {
          "Type": "Agressive",
-         "Dialogue": ["HEY! Go away it is our area. You better back off or else...", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Dialogue": ["HEY! Who are you? You better back off or else...", "Go away it's MY place! Go away I said!"],
+         "InvestigationDialogue": ["You cannot tell if they are saying the truth.", "You are certain they are not lying."],
          "Fight": false,
          "ActionSearch": false,
          "TimeCostA": 1,
@@ -472,7 +479,8 @@
       },
       {
          "Type": "Agressive",
-         "Dialogue": ["HEY! Go away it is our area. You better back off or else...", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Dialogue": ["HEY! Who are you? You better back off or else...", "Go away it's MY place! Go away I said!"],
+         "InvestigationDialogue": ["You cannot tell if they are saying the truth.","They are bluffing and it's now really obvious."],
          "Fight": false,
          "ActionSearch": false,
          "TimeCostA": 1,
@@ -485,7 +493,8 @@
       },
       {
          "Type": "Attack",
-         "Dialogue": ["You shouldn't have come here..."],
+         "Dialogue": ["You shouldn't have come here...","I'LL KILL YOU!!"],
+         "InvestigationDialogue": null,
          "Fight": true,
          "ActionSearch": false,
          "TimeCostA": 1,
@@ -499,12 +508,13 @@
       {
          "Type": "None",
          "Dialogue": ["I don't see anyone here. Thank God.","It's quiet, too quit. Let's hurry up."],
+         "InvestigationDialogue": null,
          "Fight": false,
          "ActionSearch": true,
          "TimeCostA": 2,
          "Intentions": false,
          "ActionInvestigates": null,
-         "TimeCostInvest": 0,
+         "TimeCostInvest": null,
          "actionAccept": null,
          "actionRefused": null,
          "actionLeave": null
