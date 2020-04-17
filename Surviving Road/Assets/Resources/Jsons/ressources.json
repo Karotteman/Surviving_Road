@@ -381,7 +381,7 @@
    "events": [
       {
          "Type": "Trade",
-         "Dialogue": ["Morning Stranger, care to trade some items?","Hoddy! If you want we can exchange some items"],
+         "Dialogue": ["Morning Stranger, care to trade some items?","Hoddy! If you want we can exchange some items."],
          "InvestigationDialogue": ["You cannot tell if they are saying the truth.","You are certain they are not lying."],
          "Fight": false,
          "ActionSearch": true,
@@ -395,7 +395,7 @@
       },
       {
          "Type": "Trade",
-         "Dialogue": ["Morning Stranger, care to trade some items?","Hoddy! If you want we can exchange some items"],
+         "Dialogue": ["Morning Stranger, care to trade some items?","Hoddy! If you want we can exchange some items."],
          "InvestigationDialogue": ["You cannot tell if they are saying the truth.","They are bluffing and it's now really obvious."],
          "Fight": false,
          "ActionSearch": true,
@@ -409,7 +409,7 @@
       },
       {
          "Type": "WantHelp",
-         "Dialogue": ["Can you spare some items? I need to help my family.","I Beg you to help me, I'll die if you don't"],
+         "Dialogue": ["Can you spare some items? I need to help my family.","I Beg you to help me, I'll die if you don't."],
          "InvestigationDialogue": ["You cannot tell if they are saying the truth.", "You are certain they are not lying."],
          "Fight": false,
          "ActionSearch": true,
@@ -423,7 +423,7 @@
       },
       {
          "Type": "WantHelp",
-         "Dialogue": ["Can you spare some items? I need to help my family.","I Beg you to help me, I'll die if you don't"],
+         "Dialogue": ["Can you spare some items? I need to help my family.","I Beg you to help me, I'll die if you don't."],
          "InvestigationDialogue": ["You cannot tell if they are saying the truth.","They are bluffing and it's now really obvious."],
          "Fight": false,
          "ActionSearch": true,
@@ -437,7 +437,7 @@
       },
       {
          "Type": "Toll",
-         "Dialogue": ["There's a fee for snooping around here. Pay up or leave.", "If you wish to search this place, you'll need to give us something"],
+         "Dialogue": ["There's a fee for snooping around here. Pay up or leave.", "If you wish to search this place, you'll need to give us something."],
          "InvestigationDialogue": ["You cannot tell if they are saying the truth.", "You are certain they are not lying."],
          "Fight": false,
          "ActionSearch": false,
@@ -451,7 +451,7 @@
       },
       {
          "Type": "Toll",
-         "Dialogue": ["There's a fee for snooping around here. Pay up or leave.", "If you wish to search this place, you'll need to give us something"],
+         "Dialogue": ["There's a fee for snooping around here. Pay up or leave.", "If you wish to search this place, you'll need to give us something."],
          "InvestigationDialogue": ["You cannot tell if they are saying the truth.","They are bluffing and it's now really obvious."],
          "Fight": false,
          "ActionSearch": false,
