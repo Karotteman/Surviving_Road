@@ -23,27 +23,19 @@ public class PlayerManager : MonoBehaviour
         
     }
 
-    public bool StillAlive()
+    public void StillAlive()
     {
         if (PlayerStats.health <= 0 || PlayerStats.energy <= 0)
         {
-            return false;
+            gameManager.GameOver(); 
         }
-        return true;
     }
 
     public void Sleep()
     {
         int sleepTime = Random.Range(sleepTimeMin, sleepTimeMax);
         TimeSpent(sleepTime, true);
-        if (StillAlive())
-        {
-            gameManager.LoadScene(1);
-        }
-        else
-        {
-            gameManager.GameOver();
-        }
+        if(PlayerStats.inGame) gameManager.LoadScene(1);
     }
 
     public void TimeSpent(int time, [Optional] bool sleeping)
@@ -61,6 +53,7 @@ public class PlayerManager : MonoBehaviour
             SetHealth( time * regen, false);
         }
         CheckState();
+        StillAlive();
     }
 
     public void UseItem(Item tempItem)

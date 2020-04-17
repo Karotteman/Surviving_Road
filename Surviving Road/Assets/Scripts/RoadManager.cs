@@ -29,7 +29,6 @@ public class RoadManager : MonoBehaviour
     {
         PlayerStats.fuelStock -= fuel;
         playerManager.TimeSpent(time);
-        playerManager.StillAlive();
         GenerateRoad();
     }
 

@@ -254,10 +254,9 @@ public class UIManager : MonoBehaviour
         dialogues.text = textToDisplay;
     }
 
-    public string DisplayInvestigationDialogues(string truth)
+    public void DisplayInvestigationDialogues(string truth)
     {
         string textToDisplay = truth;
         dialogues.text = textToDisplay;
-        //return string;
     }
 }

@@ -15,6 +15,7 @@ public class EventManager : MonoBehaviour
     // Désolé, je m'incruste
     private int nbLootMin = 0;
     private int nbLootMax = 5;
+    private float ennemiLife = 1; // IMMONDE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     void Start()
     {
@@ -48,14 +49,11 @@ public class EventManager : MonoBehaviour
         {
             string truth = PlayerStats.actualEvent.InvestigationDialogue[1];
             uIManager.DisplayInvestigationDialogues(truth);
-            Debug.Log("TRUTH");
         }
         else
         {
             string truth = PlayerStats.actualEvent.InvestigationDialogue[0];
             uIManager.DisplayInvestigationDialogues(truth);
-            Debug.Log("UNSURE");
-
         }
     }
 
@@ -70,7 +68,15 @@ public class EventManager : MonoBehaviour
         if(PlayerStats.equippedProtection != null) damage -= PlayerStats.equippedProtection.Protection;
         if (damage < 0) damage = 0;
         playerManager.SetHealth(-damage);
-        print("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFf");
+        if (PlayerStats.equippedWeapon != null) ennemiLife -= PlayerStats.equippedWeapon.Damage;
+        else ennemiLife -= 0.1f;
+        playerManager.StillAlive();
+        if (ennemiLife <= 0)
+        {
+            PlayerStats.actualEvent.Fight = false;
+            spriteR.gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().SwitchMusic("main");
+        }
     }
 
     /// <summary>
