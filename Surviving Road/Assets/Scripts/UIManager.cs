@@ -64,6 +64,7 @@ public class UIManager : MonoBehaviour
             dialogues.text = PlayerStats.actualEvent.Dialogue[Random.Range(0, PlayerStats.actualEvent.Dialogue.Length)];
             GotDialogue = true;
         }
+        
 
     }
 
@@ -251,5 +252,12 @@ public class UIManager : MonoBehaviour
         }
         textToDisplay += ".";
         dialogues.text = textToDisplay;
+    }
+
+    public string DisplayInvestigationDialogues(string truth)
+    {
+        string textToDisplay = truth;
+        dialogues.text = textToDisplay;
+        //return string;
     }
 }

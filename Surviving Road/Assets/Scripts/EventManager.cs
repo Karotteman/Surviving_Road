@@ -39,6 +39,26 @@ public class EventManager : MonoBehaviour
         return characterList[randomCharacter];
     }
 
+    //HERE --- It works but I can't have it display the text
+    public void Investigate()
+    {
+        int pokerFace = Random.Range(0, 100);
+
+        if(pokerFace >= PlayerStats.actualEvent.ActionInvestigates[0])
+        {
+            string truth = PlayerStats.actualEvent.InvestigationDialogue[1];
+            uIManager.DisplayInvestigationDialogues(truth);
+            Debug.Log("TRUTH");
+        }
+        else
+        {
+            string truth = PlayerStats.actualEvent.InvestigationDialogue[0];
+            uIManager.DisplayInvestigationDialogues(truth);
+            Debug.Log("UNSURE");
+
+        }
+    }
+
     /// <summary>
     /// Resolve a Fight in EventScene
     /// </summary>
