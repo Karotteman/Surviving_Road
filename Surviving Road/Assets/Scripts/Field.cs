@@ -40,7 +40,7 @@ public class Event
     public string Type, actionAccept, actionRefused, actionLeave;
     public int TimeCostA, TimeCostInvest;
     public bool Fight, ActionSearch, Intentions;
-    public string[] Dialogue;
+    public string[] Dialogue, InvestigationDialogue;
     public int[] ActionInvestigates;
 }
 [Serializable]
