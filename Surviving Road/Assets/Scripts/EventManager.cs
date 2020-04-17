@@ -96,7 +96,7 @@ public class EventManager : MonoBehaviour
             }
             uIManager.DisplayInvestigationDialogues(feedback);
         }
-
+        uIManager.DisplayButtons();
     }
 
     /// <summary>
