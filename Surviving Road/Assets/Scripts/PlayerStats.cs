@@ -27,4 +27,17 @@ public static class PlayerStats
     public static Road actualLocation;
     public static Dictionary<Road, int[]> locationOptions;
     public static Event actualEvent;
+
+    public static Item[] GetItemList(string type) 
+    {
+        List<Item> tempList = new List<Item>();
+        for (int i = 0; i < item.Length; i++)
+        {
+            if(item[i].Type == type)
+            {
+                tempList.Add(item[i]);
+            }
+        }
+        return tempList.ToArray();  
+    }
 }

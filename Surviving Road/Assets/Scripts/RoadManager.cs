@@ -35,14 +35,24 @@ public class RoadManager : MonoBehaviour
     public void GenerateRoad()
     {
         PlayerStats.locationOptions = new Dictionary<Road, int[]>();
-        for (int i = 0; i < Random.Range(nbRoadMin, nbRoadMax); i++)
+        for (int i = 0; i < Random.Range(nbRoadMin, nbRoadMax+1); i++)
         {
-            Road roadTemp = PlayerStats.roads[Random.Range(0, PlayerStats.roads.Length)];
-            int fuelUse = Random.Range(roadTemp.FuelMin, roadTemp.FuelMax);
-            int timeUse = Random.Range(roadTemp.TimeMin, roadTemp.TimeMax);
-            int[] Costs = { fuelUse, timeUse };
-            PlayerStats.locationOptions.Add(roadTemp, Costs);
+            AddRoadToOptions();
         }
 
+    }
+
+    void AddRoadToOptions()
+    {
+        Road roadTemp = PlayerStats.roads[Random.Range(0, PlayerStats.roads.Length)];
+        int fuelUse = Random.Range(roadTemp.FuelMin, roadTemp.FuelMax + 1);
+        int timeUse = Random.Range(roadTemp.TimeMin, roadTemp.TimeMax + 1);
+        int[] Costs = { fuelUse, timeUse };
+        if (PlayerStats.locationOptions.ContainsKey(roadTemp))
+        {
+            AddRoadToOptions();
+            return;
+        }
+        PlayerStats.locationOptions.Add(roadTemp, Costs);
     }
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Item
 {
     public string Name, Type, Description, Image;
-    public int Fuel, Energy, Space, Damage, Protection;
+    public int Fuel, Energy, Space, Damage, Protection, DropRate;
     public float Health, Sickness;
     public bool Consumable;
 

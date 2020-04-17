@@ -96,12 +96,19 @@ public class InventoryManager : MonoBehaviour
             }
             else
             {
-                GetContainer(item.Type).Add(item, 1);
+                //GetContainer(item.Type).Add(item, 1);
             }
         }
         else
         {
-            GetContainer(item.Type).Add(item, 1);
+            if (GetContainer(item.Type).ContainsKey(item))
+            {
+                //GetContainer(item.Type).Add(item, GetContainer(item.Type)[item]++);
+            }
+            else
+            {
+                GetContainer(item.Type).Add(item, 1);
+            }
         }
     }
     public void Remove(Item item)

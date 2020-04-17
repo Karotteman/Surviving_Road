@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Events UI")]
     public Text dialogues;
+    public SpriteRenderer background;
     public EventManager eventManager;
     public Transform buttonHolder;
     public bool GotDialogue = false;
@@ -26,13 +27,20 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        switch (SceneManager.GetActiveScene().name)
+        switch (SceneManager.GetActiveScene().name) //Le switch vérifie que t'es dans la bonne scene
         {
             case "HomeScene":
                 containerStock = containerPanel.transform.GetChild(3);
                 break;
             case "RoadScene":
                 DisplayRoads();
+                break;
+            case "EventScene":
+                print(PlayerStats.actualLocation.Background);
+                Sprite currentSprite = Resources.Load<Sprite>("Images/Backgrounds/" + PlayerStats.actualLocation.Background);
+                background.sprite = currentSprite;
+                DisplayDialogues(); //Fonction pour afficher les dialogues
+                DisplayButtons(); //Fonction pour afficher les boutons
                 break;
         }
     }
@@ -41,14 +49,6 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         timeLeft.text = PlayerStats.energy + "H  "+ (int)Mathf.Round(PlayerStats.health*100)+"Life";
-
-        switch (SceneManager.GetActiveScene().name) //Le switch vérifie que t'es dans la bonne scene
-        {
-            case "EventScene":
-                DisplayDialogues(); //Fonction pour afficher les dialogues
-                DisplayButtons(); //Fonction pour afficher les boutons
-                break;
-        }
     }
 
     /////////////////////////// DOMINIC ///////////////////////////////////
@@ -62,7 +62,7 @@ public class UIManager : MonoBehaviour
 
     }
 
-    void DisplayButtons()
+    public void DisplayButtons()
     {
         //Active le bouton search si actionSearch est vrai
         buttonHolder.GetChild(0).gameObject.SetActive(PlayerStats.actualEvent.ActionSearch);
@@ -210,5 +210,30 @@ public class UIManager : MonoBehaviour
                 itemRenderer.GetComponentInParent<ItemScript>().assignedItem = null;
             }
         }
+    }
+
+    /// <summary>
+    /// Une variation de DisplayDialogues, t'en occupe pas, t'en as pas besoin, mais tu peux me demander si jamais tu veux savoir commment je fais ça ;)
+    /// </summary>
+    /// <param name="dialogueType">Le type de dialogue souhaité</param>
+    void DisplayDialogues(string dialogueType)
+    {
+        switch (dialogueType)
+        {
+        }
+    }
+    /// <summary>
+    /// Une variation de DisplayDialogues, spécifique à l'affichage du loot
+    /// </summary>
+    /// <param name="loot">Le loot obtenue</param>
+    public void DisplayDialogues(Item[] loot)
+    {
+        string textToDisplay = "You've found";
+        foreach(Item item in loot)
+        {
+            textToDisplay += " 1 " + item.Name;
+        }
+        textToDisplay += ".";
+        dialogues.text = textToDisplay;
     }
 }

@@ -44,6 +44,7 @@ public class RoadScript : MonoBehaviour
     {
         if (assignedRoad != null)
         {
+            PlayerStats.actualLocation = assignedRoad;
             PlayerStats.actualEvent = PlayerStats.events[Random.Range(0, PlayerStats.events.Length)];
             roadManager.UseRoad(PlayerStats.locationOptions[assignedRoad][0], PlayerStats.locationOptions[assignedRoad][1]);
         }

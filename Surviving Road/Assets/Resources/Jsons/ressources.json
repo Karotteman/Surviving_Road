@@ -325,7 +325,7 @@
      ,"TimeMax":8
      ,"FuelMin":2
      ,"FuelMax":4
-     ,"Background":"imageName"
+     ,"Background":"gas station"
      },
       {
       "Name":"Abandonned House"
@@ -335,7 +335,7 @@
      ,"TimeMax":8
      ,"FuelMin":2
      ,"FuelMax":4
-     ,"Background":"imageName"
+     ,"Background":"decor maison"
      },
       {
       "Name":"Old Durg Store"
@@ -345,7 +345,7 @@
      ,"TimeMax":8
      ,"FuelMin":2
      ,"FuelMax":4
-     ,"Background":"imageName"
+     ,"Background":"drug store"
      },
       {
       "Name":"Supermarket"
@@ -355,7 +355,7 @@
      ,"TimeMax":8
      ,"FuelMin":2
      ,"FuelMax":4
-     ,"Background":"imageName"
+     ,"Background":"supermarket"
      },
       {
       "Name":"Motel"
@@ -365,7 +365,7 @@
      ,"TimeMax":4
      ,"FuelMin":1
      ,"FuelMax":2
-     ,"Background":"imageName"
+     ,"Background":"motel"
      },
       {
       "Name":"Beet Farm"
@@ -375,7 +375,7 @@
      ,"TimeMax":8
      ,"FuelMin":2
      ,"FuelMax":4
-     ,"Background":"imageName"
+     ,"Background":"farm"
      }
    ],
    "events": [

@@ -1438,7 +1438,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1189834562}
   m_HandleRect: {fileID: 1189834561}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1920,6 +1920,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e666b23d6b061404ebfe2819a5339293, type: 3}
   - {fileID: 21300000, guid: fa9efbbaf14f24d43a1da652eddadf49, type: 3}
   characterSpace: {fileID: 962941081}
+  playerManager: {fileID: 2127742931}
+  inventoryManager: {fileID: 1423174869}
+  uIManager: {fileID: 2129835971}
 --- !u!1 &1325245439
 GameObject:
   m_ObjectHideFlags: 0
@@ -2372,6 +2375,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 1
+--- !u!1 &1423174867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1423174868}
+  - component: {fileID: 1423174869}
+  m_Layer: 0
+  m_Name: InventoryManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1423174868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423174867}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1800216815}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1423174869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423174867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299711569b6ecfe479a00eb0ff089d3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1565849008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2855,6 +2901,8 @@ Transform:
   - {fileID: 399683886}
   - {fileID: 2129835970}
   - {fileID: 1257463904}
+  - {fileID: 2127742930}
+  - {fileID: 1423174868}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2941,9 +2989,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 399683887}
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 1257463905}
+        m_MethodName: Loot
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3091,6 +3139,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2056086088}
   m_CullTransparentMesh: 0
+--- !u!1 &2127742929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2127742930}
+  - component: {fileID: 2127742931}
+  m_Layer: 0
+  m_Name: PlayerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2127742930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127742929}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1800216815}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2127742931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127742929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce63f47608356c428352aaa6ad6b0af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 399683887}
 --- !u!1 &2129835969
 GameObject:
   m_ObjectHideFlags: 0
@@ -3141,6 +3233,7 @@ MonoBehaviour:
   roads: {fileID: 0}
   inventoryManager: {fileID: 0}
   dialogues: {fileID: 1325245441}
+  background: {fileID: 1739627322}
   eventManager: {fileID: 1257463905}
   buttonHolder: {fileID: 1408531415}
   GotDialogue: 0
