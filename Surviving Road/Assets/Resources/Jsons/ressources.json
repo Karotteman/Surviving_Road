@@ -478,10 +478,10 @@
       {
          "Type": "None",
          "Dialogue": ["I don't see anyone here. Thank God.","It's quiet, too quit. Let's hurry up."],
-         "Fight": null,
+         "Fight": false,
          "ActionSearch": true,
          "TimeCostA": 2,
-         "Intentions": null,
+         "Intentions": false,
          "ActionInvestigates": null,
          "TimeCostInvest": null,
          "actionAccept": null,
@@ -494,7 +494,7 @@
          "Type": "Good",
          "Name": "Gain Energy",
          "Text": ["During this expedition you gained: ","You fill happy that luck may be on your side. You feel a boost in energy.","You are glad not everyone has turned to crime.","They look at you with a big smile as you leave. You smile back."],
-         "FightWin": null,
+         "FightWin": false,
          "Health": 0,
          "Energy": 2,
          "ExtraItemGain": true,
@@ -504,7 +504,7 @@
          "Type": "Good",
          "Name": "Gain Items",
          "Text": ["During this expedition you gained: ","They are so grateful they give you some of their surplus.","They are happy you are not there to attack them; they give you some items for your travels.","They think you look like a nice person. They hid a gift in your caravan."],
-         "FightWin": null,
+         "FightWin": false,
          "Health": 0,
          "Energy": 0,
          "ExtraItemGain": true,
@@ -514,7 +514,7 @@
          "Type": "GoodBluff",
          "Name": "Find Bluff",
          "Text": ["During this expedition you gained: ","You call their bluff and they step back, ashamed. They give you some items to apologize.","They freeze, obviously confused. You take some of their items and they stand there, paralyzed.","They try to double down on their bluff, but it fails. You leave with some extra items."],
-         "FightWin": null,
+         "FightWin": false,
          "Health": 0,
          "Energy": 0,
          "ExtraItemGain": true,
@@ -527,8 +527,8 @@
          "FightWin": false,
          "Health": -5,
          "Energy": -2,
-         "ExtraItemGain": "FAUX",
-         "ItemLoss": "FAUX"
+         "ExtraItemGain": false,
+         "ItemLoss": false
       },
       {
          "Type": "Bad",
@@ -544,7 +544,7 @@
          "Type": "Bad",
          "Name": "Lost Items",
          "Text": ["You came back having lost: ","They stole from you while you were not looking. You are lucky they are not violent.","The are missing some items. Looks like you have been burgled."],
-         "FightWin": null,
+         "FightWin": false,
          "Health": 0,
          "Energy": 0,
          "ExtraItemGain": false,
@@ -557,14 +557,14 @@
          "FightWin": true,
          "Health": 0,
          "Energy": -2,
-         "ExtraItemGain": "FAUX",
+         "ExtraItemGain": false,
          "ItemLoss": false
       },
       {
          "Type": "BadBluff",
          "Name": "Bluff Fight Lost",
          "Text": ["You came back having lost: ","You guessed wrong! They overpowered you and stole some items.","They were not kidding. They attacked you and took some items while laughing."],
-         "FightWin": "FAUX",
+         "FightWin": false,
          "Health": -5,
          "Energy": -2,
          "ExtraItemGain": false,
@@ -574,11 +574,11 @@
          "Type": "Neutral",
          "Name": "Walk away",
          "Text": ["They stare at you without saying a word.","They turn back minding their business without paying more attention to you.","You could swear they want to attack you, but they do not move as you leave.","They look on edge and ready to flee. You leave without an incident."],
-         "FightWin": null,
+         "FightWin": false,
          "Health": 0,
          "Energy": 0,
-         "ExtraItemGain": "FAUX",
-         "ItemLoss": "FAUX"
+         "ExtraItemGain": false,
+         "ItemLoss": false
       }
    ]
 }
