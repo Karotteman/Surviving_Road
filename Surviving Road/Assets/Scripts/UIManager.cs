@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     public Text dialogues;
     public EventManager eventManager;
     public Transform buttonHolder;
+    public bool GotDialogue = false;
 
     Transform containerStock;
 
@@ -53,14 +54,29 @@ public class UIManager : MonoBehaviour
     /////////////////////////// DOMINIC ///////////////////////////////////
     void DisplayDialogues()
     {
-        dialogues.text = PlayerStats.actualEvent.Dialogue[0];
+        if (!GotDialogue)
+        {
+            dialogues.text = PlayerStats.actualEvent.Dialogue[Random.Range(0, PlayerStats.actualEvent.Dialogue.Length)];
+            GotDialogue = true;
+        }
+
     }
 
     void DisplayButtons()
     {
         //Active le bouton search si actionSearch est vrai
         buttonHolder.GetChild(0).gameObject.SetActive(PlayerStats.actualEvent.ActionSearch);
-        print("Actual Event : Action Search : "+PlayerStats.actualEvent.ActionSearch);
+
+        if (PlayerStats.actualEvent.Type == "None" || PlayerStats.actualEvent.Type == "Fight")
+        {
+            buttonHolder.GetChild(1).gameObject.SetActive(false);
+            buttonHolder.GetChild(2).gameObject.SetActive(false);
+            buttonHolder.GetChild(3).gameObject.SetActive(false);
+        }
+        
+        buttonHolder.GetChild(4).gameObject.SetActive(!PlayerStats.actualEvent.Fight);
+        buttonHolder.GetChild(5).gameObject.SetActive(PlayerStats.actualEvent.Fight);
+        
     }
     /////////////////////////// DOMINIC ///////////////////////////////////
 
@@ -120,7 +136,6 @@ public class UIManager : MonoBehaviour
         CleanContainer();
         containerPanel.transform.GetChild(0).GetComponent<Text>().text = container.Keys.ToArray()[0].Type;
 
-        
         int i = 0;
         foreach (KeyValuePair<Item, int> entry in container)
         {
