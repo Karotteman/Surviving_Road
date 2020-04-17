@@ -1998,6 +1998,7 @@ MonoBehaviour:
   characterList:
   - {fileID: 21300000, guid: e666b23d6b061404ebfe2819a5339293, type: 3}
   - {fileID: 21300000, guid: fa9efbbaf14f24d43a1da652eddadf49, type: 3}
+  - {fileID: 21300000, guid: 2ddb5f5855cd8d94eb83298d14d8ba01, type: 3}
   characterSpace: {fileID: 962941081}
   playerManager: {fileID: 2127742931}
   inventoryManager: {fileID: 1423174869}
