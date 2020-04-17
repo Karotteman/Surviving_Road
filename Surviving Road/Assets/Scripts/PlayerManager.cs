@@ -85,6 +85,7 @@ public class PlayerManager : MonoBehaviour
                     break;
             }
         }
+        CheckState();
     }
 
     public void SetHealth(float health, [Optional] bool checkState)
@@ -111,9 +112,13 @@ public class PlayerManager : MonoBehaviour
 
     public void CheckState()
     {
-        if(PlayerStats.energy  <= 10 || PlayerStats.health <= 0.25)
+        if (PlayerStats.energy <= 10 || PlayerStats.health <= 0.25)
         {
-            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().SwitchMusic();
+            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().SwitchMusic("battle");
+        }
+        if (PlayerStats.energy >= 10 && PlayerStats.health >= 0.25)
+        {
+            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().SwitchMusic("main");
         }
     }
 }

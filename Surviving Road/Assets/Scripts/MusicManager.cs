@@ -25,16 +25,21 @@ public class MusicManager : MonoBehaviour
         audioSource.Stop();
     }
 
-    public void SwitchMusic()
+    public void SwitchMusic(string theme)
     {
-        if (audioSource.clip == mainTheme)
+        AudioClip tempoClip;
+        switch(theme)
         {
-            audioSource.clip = battleTheme;
+            case "main":
+                tempoClip = mainTheme;
+                break;
+            case "battle":
+                tempoClip = battleTheme;
+                break;
+            default:
+                tempoClip = null;
+                break;
         }
-        else
-        {
-            audioSource.clip = mainTheme;
-        }
-        PlayMusic();
+        if(audioSource.clip == tempoClip) PlayMusic();
     }
 }

@@ -40,6 +40,20 @@ public class EventManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Resolve a Fight in EventScene
+    /// </summary>
+    public void Fight()
+    {
+        Item ennemiWeapon = PlayerStats.GetRandomItem("Weapon");
+        Item ennemiProtection = PlayerStats.GetRandomItem("Protection");
+        float damage = ennemiWeapon.Damage;
+        if(PlayerStats.equippedProtection != null) damage -= PlayerStats.equippedProtection.Protection;
+        if (damage < 0) damage = 0;
+        playerManager.SetHealth(-damage);
+        print("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFf");
+    }
+
+    /// <summary>
     /// Add a list of Item into the inventory of the player
     /// </summary>
     public void Loot()

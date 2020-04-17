@@ -41,6 +41,11 @@ public class UIManager : MonoBehaviour
                 background.sprite = currentSprite;
                 DisplayDialogues(); //Fonction pour afficher les dialogues
                 DisplayButtons(); //Fonction pour afficher les boutons
+                // pour le song, c'est pas propre du tout, mais c'est rapide
+                if (PlayerStats.actualEvent.Fight)
+                {
+                    GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().SwitchMusic("battle");
+                }
                 break;
         }
     }
@@ -75,8 +80,16 @@ public class UIManager : MonoBehaviour
         }
         
         buttonHolder.GetChild(4).gameObject.SetActive(!PlayerStats.actualEvent.Fight);
+
         buttonHolder.GetChild(5).gameObject.SetActive(PlayerStats.actualEvent.Fight);
-        
+        // Affiche le nom de l'arme dans le bouton
+        string weaponName = "your own hands";
+        if (PlayerStats.equippedWeapon != null)
+        {
+            weaponName = PlayerStats.equippedWeapon.Name;
+        }
+        buttonHolder.GetChild(5).GetChild(0).GetComponent<Text>().text = "Fight back with "+ weaponName + "!";
+
     }
     /////////////////////////// DOMINIC ///////////////////////////////////
 

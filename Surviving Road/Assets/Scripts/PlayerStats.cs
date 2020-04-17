@@ -28,16 +28,34 @@ public static class PlayerStats
     public static Dictionary<Road, int[]> locationOptions;
     public static Event actualEvent;
 
-    public static Item[] GetItemList(string type) 
+    public static Item[] GetItemList(string type)
     {
         List<Item> tempList = new List<Item>();
         for (int i = 0; i < item.Length; i++)
         {
-            if(item[i].Type == type)
+            if (item[i].Type == type)
             {
                 tempList.Add(item[i]);
             }
         }
-        return tempList.ToArray();  
+        return tempList.ToArray();
+    }
+
+    /// <summary>
+    /// Get a Random Item of the specifie type
+    /// </summary>
+    /// <param name="type">Type of th item</param>
+    /// <returns></returns>
+    public static Item GetRandomItem(string type)
+    {
+        List<Item> tempList = new List<Item>();
+        for (int i = 0; i < item.Length; i++)
+        {
+            if (item[i].Type == type)
+            {
+                tempList.Add(item[i]);
+            }
+        }
+        return tempList[Random.Range(0,tempList.Count)];
     }
 }
