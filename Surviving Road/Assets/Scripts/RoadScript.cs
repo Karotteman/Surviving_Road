@@ -5,11 +5,16 @@ using UnityEngine;
 public class RoadScript : MonoBehaviour
 {
     public UIManager uiManager;
-    public Road assignedRoad = null;
-    // Start is called before the first frame update
-    void Start()
+    Road assignedRoad = null;
+
+    int fuelUse;
+    int timeUse;
+
+    public void AddRoad(Road tempRoad)
     {
-        
+        assignedRoad = tempRoad;
+        fuelUse = Random.Range(assignedRoad.FuelMin, assignedRoad.FuelMax);
+        timeUse = Random.Range(assignedRoad.TimeMin, assignedRoad.TimeMax);
     }
 
     // Update is called once per frame
@@ -26,8 +31,8 @@ public class RoadScript : MonoBehaviour
         {
             uiManager.DisplayDescritpion(
                 assignedRoad.Description,
-                Random.Range(assignedRoad.FuelMin, assignedRoad.FuelMax),
-                Random.Range(assignedRoad.TimeMin, assignedRoad.TimeMax),
+                fuelUse,
+                timeUse,
                 GetComponentInParent<RectTransform>().transform.position,
                 GetComponentInParent<RectTransform>().transform.localScale.x
                 );

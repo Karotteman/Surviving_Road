@@ -72,7 +72,7 @@ public class UIManager : MonoBehaviour
         {
             Transform tempRoad = roads.GetChild(i);
 
-            tempRoad.GetComponent<RoadScript>().assignedRoad = option;
+            tempRoad.GetComponent<RoadScript>().AddRoad(option);
             tempRoad.gameObject.SetActive(true);
             tempRoad.GetChild(0).GetComponent<Text>().text = option.Name;
             i++;

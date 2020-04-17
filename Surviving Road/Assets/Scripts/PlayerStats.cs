@@ -24,7 +24,7 @@ public static class PlayerStats
     public static Dictionary<Item, int> weaponStock;
     public static Dictionary<Item, int> protectionStock;
 
-    public static Road actulLocation;
+    public static Road actualLocation;
     public static List<Road> locationOptions;
     public static Event actualEvent;
 }

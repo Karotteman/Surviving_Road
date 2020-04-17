@@ -11,7 +11,7 @@ public class RoadManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(PlayerStats.actulLocation == null)
+        if(PlayerStats.locationOptions == null)
         {
             GenerateRoad();
         }
@@ -26,7 +26,7 @@ public class RoadManager : MonoBehaviour
     public void GenerateRoad()
     {
         PlayerStats.locationOptions = new List<Road>();
-        for (int i = 0; i < Random.Range(nbRoadMin, nbRoadMin); i++)
+        for (int i = 0; i < Random.Range(nbRoadMin, nbRoadMax); i++)
         {
             PlayerStats.locationOptions.Add(PlayerStats.roads[Random.Range(0, PlayerStats.roads.Length)]);
         }

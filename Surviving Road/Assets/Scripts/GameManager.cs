@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(PlayerStats.health);
         if (PlayerStats.inGame && PlayerStats.health <= 0)
         {
             GameOver();
