@@ -1315,6 +1315,7 @@ MonoBehaviour:
     Space: 0
     Damage: 0
     Protection: 0
+    DropRate: 0
     Health: 0
     Sickness: 0
     Consumable: 0
@@ -7842,11 +7843,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 399683887}
         m_MethodName: LoadScene
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: RoadScene
           m_BoolArgument: 0
@@ -8822,8 +8823,10 @@ MonoBehaviour:
   roads: {fileID: 0}
   inventoryManager: {fileID: 300933008}
   dialogues: {fileID: 0}
+  background: {fileID: 0}
   eventManager: {fileID: 0}
   buttonHolder: {fileID: 0}
+  GotDialogue: 0
 --- !u!1 &2135815992
 GameObject:
   m_ObjectHideFlags: 0

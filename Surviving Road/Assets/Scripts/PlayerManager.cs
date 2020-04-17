@@ -38,7 +38,7 @@ public class PlayerManager : MonoBehaviour
         TimeSpent(sleepTime, true);
         if (StillAlive())
         {
-            gameManager.LoadScene("HomeScene");
+            gameManager.LoadScene(1);
         }
         else
         {

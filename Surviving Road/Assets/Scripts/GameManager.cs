@@ -33,15 +33,15 @@ public class GameManager : MonoBehaviour
         PlayerStats.weaponStock = new Dictionary<Item, int>();
         PlayerStats.protectionStock = new Dictionary<Item, int>();
         jsonManager.NewSave();
-        LoadScene("HomeScene");
+        LoadScene(1);
     }
 
-    public void LoadScene(string sceneName)
+    public void LoadScene(int sceneName)
     {
         StartCoroutine(LoadTransition(sceneName));
     }
 
-    IEnumerator LoadTransition(string sceneName)
+    IEnumerator LoadTransition(int sceneName)
     {
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(1.5f);
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver() 
     {
-        LoadScene("DeathScene");
+        LoadScene(4);
         PlayerStats.inGame = false;
     }
 }

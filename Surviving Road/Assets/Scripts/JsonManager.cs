@@ -12,7 +12,8 @@ public class JsonManager : MonoBehaviour
     void Start()
     {
         inventoryManager = GetComponent<InventoryManager>();
-        Field res = JsonUtility.FromJson<Field>(File.ReadAllText("./Assets/Resources/Jsons/ressources.json"));
+        //Field res = JsonUtility.FromJson<Field>(File.ReadAllText("./Assets/Resources/Jsons/ressources.json"));
+        Field res = JsonUtility.FromJson<Field>(Resources.Load<TextAsset>("Jsons/ressources").ToString());
         PlayerStats.item = res.item;
         PlayerStats.roads = res.road;
         PlayerStats.events = res.events;
@@ -27,8 +28,9 @@ public class JsonManager : MonoBehaviour
 
     public void NewSave()
     {
-        Field res = JsonUtility.FromJson<Field>(File.ReadAllText("./Assets/Resources/Jsons/initialState.json"));
-        foreach(Item item in res.item)
+        //Field res = JsonUtility.FromJson<Field>(File.ReadAllText("./Assets/Resources/Jsons/initialState.json"));
+        Field res = JsonUtility.FromJson<Field>(Resources.Load<TextAsset>("Jsons/initialState").ToString());
+        foreach (Item item in res.item)
         {
             inventoryManager.Pickup(item);
         }

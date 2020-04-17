@@ -51,6 +51,7 @@ public class EventManager : MonoBehaviour
         }
         uIManager.DisplayDialogues(loot);
         PlayerStats.actualEvent.ActionSearch = false;
+        playerManager.TimeSpent(PlayerStats.actualEvent.TimeCostA);
         uIManager.DisplayButtons();
     }
 
