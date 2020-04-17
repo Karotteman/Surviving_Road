@@ -22,11 +22,27 @@ public class PlayerManager : MonoBehaviour
         
     }
 
+    public bool StillAlive()
+    {
+        if (PlayerStats.health <= 0 || PlayerStats.energy <= 0)
+        {
+            return false;
+        }
+        return true;
+    }
+
     public void Sleep()
     {
         int sleepTime = Random.Range(sleepTimeMin, sleepTimeMax);
         TimeSpent(sleepTime, true);
-        gameManager.LoadScene("HomeScene");
+        if (StillAlive())
+        {
+            gameManager.LoadScene("HomeScene");
+        }
+        else
+        {
+            gameManager.GameOver();
+        }
     }
 
     public void TimeSpent(float time, [Optional] bool sleeping)

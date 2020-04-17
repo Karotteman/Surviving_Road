@@ -25,8 +25,6 @@ public class RoadScript : MonoBehaviour
 
     public void MouseOver()
     {
-        print(assignedRoad.Name);
-        print(assignedRoad.FuelMin + " ||| "+ assignedRoad.FuelMax + " ||| "+ assignedRoad.TimeMin + " ||| " + assignedRoad.TimeMax);
         if (assignedRoad != null)
         {
             uiManager.DisplayDescritpion(
