@@ -44,7 +44,7 @@ public static class PlayerStats
     /// <summary>
     /// Get a Random Item of the specifie type
     /// </summary>
-    /// <param name="type">Type of th item</param>
+    /// <param name="type">Type of the item</param>
     /// <returns></returns>
     public static Item GetRandomItem(string type)
     {
@@ -56,6 +56,24 @@ public static class PlayerStats
                 tempList.Add(item[i]);
             }
         }
-        return tempList[Random.Range(0,tempList.Count)];
+        return tempList[Random.Range(0, tempList.Count)];
+    }
+    /// <summary>
+    /// Get a Random Item of the specifie type (the last item in range not inculde)
+    /// </summary>
+    /// <param name="type">Type of the item</param>
+    /// <param name="range"></param>
+    /// <returns></returns>
+    public static Item GetRandomItem(string type, int range)
+    {
+        List<Item> tempList = new List<Item>();
+        for (int i = 0; i < item.Length-range; i++)
+        {
+            if (item[i].Type == type)
+            {
+                tempList.Add(item[i]);
+            }
+        }
+        return tempList[Random.Range(0, tempList.Count)];
     }
 }

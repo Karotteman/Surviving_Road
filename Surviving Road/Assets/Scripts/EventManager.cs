@@ -43,6 +43,7 @@ public class EventManager : MonoBehaviour
     //HERE --- It works but I can't have it display the text
     public void Investigate()
     {
+        playerManager.TimeSpent(PlayerStats.actualEvent.TimeCostInvest);
         int pokerFace = Random.Range(0, 100);
 
         if(pokerFace >= PlayerStats.actualEvent.ActionInvestigates[0])
@@ -62,8 +63,9 @@ public class EventManager : MonoBehaviour
     /// </summary>
     public void Fight()
     {
-        Item ennemiWeapon = PlayerStats.GetRandomItem("Weapon");
-        Item ennemiProtection = PlayerStats.GetRandomItem("Protection");
+        playerManager.TimeSpent(PlayerStats.actualEvent.TimeCostA);
+        Item ennemiWeapon = PlayerStats.GetRandomItem("Weapon", 2);
+        Item ennemiProtection = PlayerStats.GetRandomItem("Protection", 3);
         float damageGiven;
         float damageTaken = ennemiWeapon.Damage;
         if (PlayerStats.equippedProtection != null) damageTaken -= PlayerStats.equippedProtection.Protection;
@@ -94,6 +96,14 @@ public class EventManager : MonoBehaviour
             }
             uIManager.DisplayInvestigationDialogues(feedback);
         }
+
+    }
+
+    /// <summary>
+    /// Reaction to pnj, generate another reaction
+    /// </summary>
+    public void Reaction()
+    {
 
     }
 
