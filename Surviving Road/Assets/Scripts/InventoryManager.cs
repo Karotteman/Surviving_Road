@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class InventoryManager : MonoBehaviour
 {
-    Dictionary<Item, int> currentContainer;
+    //Dictionary<Item, int> currentContainer;
     int stackLimit = 10;
     string currentTypeContainer;
     string[] containerType = { "Medpack", "Antibiotic", "Protection", "Weapon", "Food", "Water" };
@@ -32,94 +32,99 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    public Dictionary<Item, int> LoadContainer(string type)
+    {
+        Dictionary<Item, int> currentContainer = GetContainer(type);
+        if (currentContainer != null)
+        {
+            return currentContainer;
+        }
+        else
+        {
+            if(type == "Next")
+            {
+                NextContainer();
+                return LoadContainer(currentTypeContainer);
+            }
+            else if (type == "Previous")
+            {
+                PreviousContainer();
+                return LoadContainer(currentTypeContainer);
+            }
+        }
+        return null;
+    }
+
     public Dictionary<Item, int> GetContainer(string type)
     {
         switch (type)
         {
             case "Food":
-                currentContainer = PlayerStats.foodStock;
                 currentTypeContainer = type;
-                break;
+                return PlayerStats.foodStock;
             case "Water":
-                currentContainer = PlayerStats.WaterStock;
                 currentTypeContainer = type;
-                break;
+                return PlayerStats.WaterStock;
             case "Medpack":
-                currentContainer = PlayerStats.medpackStock;
                 currentTypeContainer = type;
-                break;
+                return PlayerStats.medpackStock;
             case "Antibiotic":
-                currentContainer = PlayerStats.antibioticStock;
                 currentTypeContainer = type;
-                break;
+                return PlayerStats.antibioticStock;
             case "Weapon":
-                currentContainer = PlayerStats.weaponStock;
                 currentTypeContainer = type;
-                break;
+                return PlayerStats.weaponStock;
             case "Protection":
-                currentContainer = PlayerStats.protectionStock;
                 currentTypeContainer = type;
-                break;
-            case "Next":
-                NextContainer();
-                GetContainer(currentTypeContainer);
-                break;
-            case "Previous":
-                PreviousContainer();
-                GetContainer(currentTypeContainer);
-                break;
+                return PlayerStats.protectionStock;
+            default :
+                return null;
         }
-
-        return currentContainer;
     }
 
     public void Pickup(Item item)
-    {
-        Dictionary<Item, int> currentContainer;
-
-        switch (item.Type)
-        {
-            case "Food":
-                currentContainer = PlayerStats.foodStock;
-                break;
-            case "Water":
-                currentContainer = PlayerStats.WaterStock;
-                break;
-            case "Medpack":
-                currentContainer = PlayerStats.medpackStock;
-                break;
-            case "Antibiotic":
-                currentContainer = PlayerStats.antibioticStock;
-                break;
-            case "Weapon":
-                currentContainer = PlayerStats.weaponStock;
-                break;
-            case "Protection":
-                currentContainer = PlayerStats.protectionStock;
-                break;
-            default:
-                currentContainer = PlayerStats.foodStock;
-                break;
-        }
-
+    {        
         if (item.Type == "Fuel")
         {
             PlayerStats.fuelStock += item.Fuel;
         }
-        else if (currentContainer.ContainsKey(item) && item.Consumable)
+        else if (GetContainer(item.Type).ContainsKey(item) && item.Consumable)
         {
-            if (currentContainer[item] < stackLimit)
+            if (GetContainer(item.Type)[item] < stackLimit)
             {
-                currentContainer[item]++;
+                GetContainer(item.Type)[item]++;
             }
             else
             {
-                currentContainer.Add(item, 1);
+                GetContainer(item.Type).Add(item, 1);
             }
         }
         else
         {
-            currentContainer.Add(item, 1);
+            GetContainer(item.Type).Add(item, 1);
+        }
+    }
+    public void Remove(Item item)
+    {
+        if (item.Type != "Fuel")
+        {
+            if (GetContainer(item.Type).ContainsKey(item) && item.Consumable)
+            {
+                if (GetContainer(item.Type)[item] > 1)
+                {
+                    print("decrease");
+                    GetContainer(item.Type)[item]--;
+                }
+                else
+                {
+                    print("remove");
+                    GetContainer(item.Type).Remove(item);
+                }
+            }
+            else
+            {
+                GetContainer(item.Type).Remove(item);
+            }
         }
     }
 

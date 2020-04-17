@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemScript : MonoBehaviour
 {
     public UIManager uiManager;
+    public PlayerManager playerManager;
     public Item assignedItem = null;
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,8 @@ public class ItemScript : MonoBehaviour
     {
         if (assignedItem != null)
         {
-            print("click");
+            playerManager.UseItem(assignedItem);
+            uiManager.RefreshContainer(uiManager.inventoryManager.GetContainer(assignedItem.Type));
         }
     }
 }

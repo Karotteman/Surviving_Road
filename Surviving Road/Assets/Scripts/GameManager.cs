@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        print("SICK : " + PlayerStats.sickness);
     }
 
     public void NewGame()

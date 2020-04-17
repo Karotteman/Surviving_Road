@@ -106,21 +106,45 @@ public class UIManager : MonoBehaviour
         itemDescriptionPanel.gameObject.SetActive(false);
     }
 
+    public void RefreshContainer(Dictionary<Item, int> container)
+    {
+        CleanContainer();
+        int i = 0;
+
+        foreach (KeyValuePair<Item, int> entry in container)
+        {
+            Image itemRenderer = containerStock.GetChild(i).GetChild(0).GetComponent<Image>();
+            Sprite currentSprite = Resources.Load<Sprite>("Images/Items/" + entry.Key.Image);
+
+            itemRenderer.sprite = currentSprite;
+            var tempColor = itemRenderer.color;
+            tempColor.a = 1;
+            itemRenderer.color = tempColor;
+            itemRenderer.preserveAspect = true;
+
+            itemRenderer.GetComponentInParent<ItemScript>().assignedItem = entry.Key;
+            itemRenderer.GetComponentInParent<Button>().interactable = true;
+            if (entry.Key.Consumable)
+            {
+                itemRenderer.transform.GetChild(0).GetComponent<Text>().text = entry.Value.ToString();
+            }
+            i++;
+        }
+    }
     public void DisplayContainer(string type)
     {
-        Dictionary<Item, int> container = inventoryManager.GetContainer(type);
+        Dictionary<Item, int> container = inventoryManager.LoadContainer(type);
 
         if (sleepWarningPanel.activeSelf)
         {
             sleepWarningPanel.SetActive(false);
         }
-        print(containerPanel.name);
 
         containerPanel.SetActive(true);
         CleanContainer();
         containerPanel.transform.GetChild(0).GetComponent<Text>().text = container.Keys.ToArray()[0].Type;
 
-        
+
         int i = 0;
         foreach (KeyValuePair<Item, int> entry in container)
         {

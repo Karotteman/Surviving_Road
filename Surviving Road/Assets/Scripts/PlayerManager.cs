@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public GameManager gameManager;
+    InventoryManager inventoryManager;
     int sleepTimeMin = 1;
     int sleepTimeMax = 12;
     float regen = 0.05f;
@@ -13,7 +14,7 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        inventoryManager = GetComponent<InventoryManager>();
     }
 
     // Update is called once per frame
@@ -57,11 +58,31 @@ public class PlayerManager : MonoBehaviour
         }
         if (PlayerStats.health < 1)
         {
-            PlayerStats.health += time * regen;
-            if (PlayerStats.health > 1)
-            {
-                PlayerStats.health = 1;
-            }
+            SetHealth( time * regen);
+        }
+    }
+
+    public void UseItem(Item tempItem)
+    {
+        if (tempItem.Consumable)
+        {
+            PlayerStats.health += tempItem.Health;
+            SetHealth( tempItem.Energy);
+            PlayerStats.sickness += tempItem.Sickness;
+            inventoryManager.Remove(tempItem);
+        }
+    }
+
+    void SetHealth(float health)
+    {
+        PlayerStats.health += health;
+        if (PlayerStats.health > 1)
+        {
+            PlayerStats.health = 1;
+        }
+        else if(PlayerStats.health < 0)
+        {
+            PlayerStats.health = 0;
         }
     }
 }
