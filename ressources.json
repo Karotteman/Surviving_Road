@@ -1,0 +1,584 @@
+{
+   "item": [
+      {
+         "Name": "Old Food",
+         "Type": "Food",
+         "Description": "Not the freshest but it will do for now. ",
+         "Consumable": true,
+         "Fuel": null,
+         "Health": 0,
+         "Sickness": 2,
+         "Energy": 2,
+         "Space": 1,
+         "Damage": null,
+         "Protection": null,
+         "Image": "food can"
+      },
+      {
+         "Name": "New Food",
+         "Type": "Food",
+         "Description": "The only source of nurishment nowadays.",
+         "Consumable": true,
+         "Fuel": null,
+         "Health": 0,
+         "Sickness": 1,
+         "Energy": 2,
+         "Space": 1,
+         "Damage": null,
+         "Protection": null,
+         "Image": "food can"
+      },
+      {
+         "Name": "Old Water",
+         "Type": "Water",
+         "Description": "It has an undefineable taste.",
+         "Consumable": true,
+         "Fuel": null,
+         "Health": -2,
+         "Sickness": 1,
+         "Energy": 0,
+         "Space": 1,
+         "Damage": null,
+         "Protection": null,
+         "Image": "item eau"
+      },
+      {
+         "Name": "Fresh Water",
+         "Type": "Water",
+         "Description": "My favorite drink. ",
+         "Consumable": true,
+         "Fuel": null,
+         "Health": -1,
+         "Sickness": 1,
+         "Energy": 0,
+         "Space": 1,
+         "Damage": null,
+         "Protection": null,
+         "Image": "item eau"
+      },
+      {
+         "Name": "Used Medpack",
+         "Type": "Medpack",
+         "Description": "TBD",
+         "Consumable": true,
+         "Fuel": null,
+         "Health": 2,
+         "Sickness": 0,
+         "Energy": 0,
+         "Space": 1,
+         "Damage": null,
+         "Protection": null,
+         "Image": "med kit"
+      },
+      {
+         "Name": "Medpack",
+         "Type": "Medpack",
+         "Description": "TBD",
+         "Consumable": true,
+         "Fuel": null,
+         "Health": 4,
+         "Sickness": 0,
+         "Energy": 0,
+         "Space": 1,
+         "Damage": null,
+         "Protection": null,
+         "Image": "med kit"
+      },
+      {
+         "Name": "Old Antibiotics",
+         "Type": "Antibiotic",
+         "Description": "TBD",
+         "Consumable": true,
+         "Fuel": null,
+         "Health": 0,
+         "Sickness": -1,
+         "Energy": -2,
+         "Space": 1,
+         "Damage": null,
+         "Protection": null,
+         "Image": "antibiotic"
+      },
+      {
+         "Name": "Antibiotics",
+         "Type": "Antibiotic",
+         "Description": "TBD",
+         "Consumable": true,
+         "Fuel": null,
+         "Health": 0,
+         "Sickness": -2,
+         "Energy": -2,
+         "Space": 1,
+         "Damage": null,
+         "Protection": null,
+         "Image": "antibiotic"
+      },
+      {
+         "Name": "Gas Can",
+         "Type": "Fuel",
+         "Description": "TBD",
+         "Consumable": true,
+         "Fuel": 4,
+         "Health": 0,
+         "Sickness": 0,
+         "Energy": 0,
+         "Space": 2,
+         "Damage": 0,
+         "Protection": 0,
+         "Image": "Gas Can"
+      },
+      {
+         "Name": "Ammunition",
+         "Type": "Weapon",
+         "Description": "TBD",
+         "Consumable": true,
+         "Fuel": null,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": 0,
+         "Damage": 0,
+         "Protection": 0,
+         "Image": "AMMO"
+      },
+      {
+         "Name": "Baseball Bat",
+         "Type": "Weapon",
+         "Description": "TBD",
+         "Consumable": false,
+         "Fuel": null,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": 2,
+         "Damage": 15,
+         "Protection": 0,
+         "Image": "baseball bat"
+      },
+      {
+         "Name": "Rusty Knife",
+         "Type": "Weapon",
+         "Description": "TBD",
+         "Consumable": false,
+         "Fuel": null,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": 1,
+         "Damage": 20,
+         "Protection": 0,
+         "Image": "rusty knife"
+      },
+      {
+         "Name": "Knife",
+         "Type": "Weapon",
+         "Description": "TBD",
+         "Consumable": false,
+         "Fuel": null,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": 1,
+         "Damage": 40,
+         "Protection": 0,
+         "Image": "knife"
+      },
+      {
+         "Name": "Blade",
+         "Type": "Weapon",
+         "Description": "TBD",
+         "Consumable": false,
+         "Fuel": null,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": 3,
+         "Damage": 50,
+         "Protection": 0,
+         "Image": "blade"
+      },
+      {
+         "Name": "Pistol",
+         "Type": "Weapon",
+         "Description": "TBD",
+         "Consumable": false,
+         "Fuel": null,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": 2,
+         "Damage": 80,
+         "Protection": 0,
+         "Image": "PISTOL"
+      },
+      {
+         "Name": "Shotgun",
+         "Type": "Weapon",
+         "Description": "TBD",
+         "Consumable": false,
+         "Fuel": null,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": 4,
+         "Damage": 100,
+         "Protection": 0,
+         "Image": "shotgun"
+      },
+      {
+         "Name": "Jacket",
+         "Type": "Protection",
+         "Description": "TBD",
+         "Consumable": false,
+         "Fuel": null,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": 2,
+         "Damage": 0,
+         "Protection": 20,
+         "Image": "jacket"
+      },
+      {
+         "Name": "Thick Coat",
+         "Type": "Protection",
+         "Description": "TBD",
+         "Consumable": false,
+         "Fuel": null,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": 3,
+         "Damage": 0,
+         "Protection": 30,
+         "Image": "thick coat"
+      },
+      {
+         "Name": "Homemade armor",
+         "Type": "Protection",
+         "Description": "TBD",
+         "Consumable": false,
+         "Fuel": null,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": 5,
+         "Damage": 0,
+         "Protection": 45,
+         "Image": "homemade armor"
+      },
+      {
+         "Name": "Bulletproof vest",
+         "Type": "Protection",
+         "Description": "TBD",
+         "Consumable": false,
+         "Fuel": null,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": 8,
+         "Damage": 0,
+         "Protection": 70,
+         "Image": "bulletproof vest"
+      },
+      {
+         "Name": "Swat gear",
+         "Type": "Protection",
+         "Description": "TBD",
+         "Consumable": false,
+         "Fuel": null,
+         "Health": null,
+         "Sickness": null,
+         "Energy": null,
+         "Space": 10,
+         "Damage": 0,
+         "Protection": 90,
+         "Image": "swat gear"
+      }
+   ],
+   "road" : [
+      {
+      "Name":"Gas station"
+     ,"Description":"Good place to find some fuel."
+     ,"LootRate":[{"Loot":"Fuel","DropRate":70},{"Loot":"Water","DropRate":50},{"Loot":"Antibiotic","DropRate":20},{"Loot":"Weapon","DropRate":5}]
+     ,"TimeMin":2
+     ,"TimeMax":8
+     ,"FuelMin":2
+     ,"FuelMax":4
+     ,"Background":"imageName"
+     },
+      {
+      "Name":"Abandonned House"
+     ,"Description":"I may be able to find some gear and food there. "
+     ,"LootRate":[{"Loot":"Protection","DropRate":70},{"Loot":"Food","DropRate":50},{"Loot":"Medpack","DropRate":20},{"Loot":"Fuel","DropRate":5}]
+     ,"TimeMin":2
+     ,"TimeMax":8
+     ,"FuelMin":2
+     ,"FuelMax":4
+     ,"Background":"imageName"
+     },
+      {
+      "Name":"Old Durg Store"
+     ,"Description":"I hope there's some medical supplies left. "
+     ,"LootRate":[{"Loot":"Antibiotic","DropRate":70},{"Loot":"Medpack","DropRate":50},{"Loot":"Weapon","DropRate":20},{"Loot":"Fuel","DropRate":5}]
+     ,"TimeMin":2
+     ,"TimeMax":8
+     ,"FuelMin":2
+     ,"FuelMax":4
+     ,"Background":"imageName"
+     },
+      {
+      "Name":"Supermarket"
+     ,"Description":"I'll at least find some food... "
+     ,"LootRate":[{"Loot":"Food","DropRate":70},{"Loot":"Water","DropRate":50},{"Loot":"Protection","DropRate":20},{"Loot":"Antibiotic","DropRate":5}]
+     ,"TimeMin":2
+     ,"TimeMax":8
+     ,"FuelMin":2
+     ,"FuelMax":4
+     ,"Background":"imageName"
+     },
+      {
+      "Name":"Motel"
+     ,"Description":"Best chance to find a bit of everything. "
+     ,"LootRate":[{"Loot":"Fuel","DropRate":50},{"Loot":"Antibiotic","DropRate":50},{"Loot":"Weapon","DropRate":50},{"Loot":"Food","DropRate":50}]
+     ,"TimeMin":1
+     ,"TimeMax":4
+     ,"FuelMin":1
+     ,"FuelMax":2
+     ,"Background":"imageName"
+     },
+      {
+      "Name":"Beet Farm"
+     ,"Description":"I've heard crazy farmers had a lot of weapons."
+     ,"LootRate":[{"Loot":"Weapon","DropRate":70},{"Loot":"Food","DropRate":50},{"Loot":"Water","DropRate":20},{"Loot":"Fuel","DropRate":5}]
+     ,"TimeMin":2
+     ,"TimeMax":8
+     ,"FuelMin":2
+     ,"FuelMax":4
+     ,"Background":"imageName"
+     }
+   ],
+   "events": [
+      {
+         "Type": "Trade",
+         "Dialogue": ["Morning Stranger, care to trade some items?", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Fight": false,
+         "ActionSearch": true,
+         "TimeCostA": 2,
+         "Intentions": true,
+         "ActionInvestigates": [25,60,100],
+         "TimeCostInvest": 1,
+         "actionAccept": "Good",
+         "actionRefused": "Neutral",
+         "actionLeave": "Neutral"
+      },
+      {
+         "Type": "Trade",
+         "Dialogue": ["Morning Stranger, care to trade some items?", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Fight": false,
+         "ActionSearch": true,
+         "TimeCostA": 2,
+         "Intentions": false,
+         "ActionInvestigates": [25,60,100],
+         "TimeCostInvest": 1,
+         "actionAccept": "Bad",
+         "actionRefused": "Neutral",
+         "actionLeave": "Neutral"
+      },
+      {
+         "Type": "WantHelp",
+         "Dialogue": ["Can you spare some items? I need to help my family.", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Fight": false,
+         "ActionSearch": true,
+         "TimeCostA": 2,
+         "Intentions": true,
+         "ActionInvestigates": [25,60,100],
+         "TimeCostInvest": 1,
+         "actionAccept": "Good",
+         "actionRefused": "Neutral",
+         "actionLeave": "Neutral"
+      },
+      {
+         "Type": "WantHelp",
+         "Dialogue": ["Can you spare some items? I need to help my family.", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Fight": false,
+         "ActionSearch": true,
+         "TimeCostA": 2,
+         "Intentions": false,
+         "ActionInvestigates": [25,60,100],
+         "TimeCostInvest": 1,
+         "actionAccept": "Bad",
+         "actionRefused": "Neutral",
+         "actionLeave": "Neutral"
+      },
+      {
+         "Type": "Toll",
+         "Dialogue": ["There's a fee for snooping around here. Pay up or leave.", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Fight": false,
+         "ActionSearch": false,
+         "TimeCostA": 1,
+         "Intentions": true,
+         "ActionInvestigates": [25,60,100],
+         "TimeCostInvest": 1,
+         "actionAccept": "Good",
+         "actionRefused": "BadBluff",
+         "actionLeave": "Neutral"
+      },
+      {
+         "Type": "Toll",
+         "Dialogue": ["There's a fee for snooping around here. Pay up or leave.", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Fight": false,
+         "ActionSearch": false,
+         "TimeCostA": 1,
+         "Intentions": false,
+         "ActionInvestigates": [25,60,100],
+         "TimeCostInvest": 1,
+         "actionAccept": "Bad",
+         "actionRefused": "GoodBluff",
+         "actionLeave": "Neutral"
+      },
+      {
+         "Type": "Agressive",
+         "Dialogue": ["HEY! Go away it is our area. You better back off or else...", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Fight": false,
+         "ActionSearch": false,
+         "TimeCostA": 1,
+         "Intentions": true,
+         "ActionInvestigates": [25,60,100],
+         "TimeCostInvest": 1,
+         "actionAccept": "Neutral",
+         "actionRefused": "BadBluff",
+         "actionLeave": "Neutral"
+      },
+      {
+         "Type": "Agressive",
+         "Dialogue": ["HEY! Go away it is our area. You better back off or else...", "You cannot tell if they are saying the truth.", "You are certain they are not lying.","They are bluffing and it's now really obvious."],
+         "Fight": false,
+         "ActionSearch": false,
+         "TimeCostA": 1,
+         "Intentions": false,
+         "ActionInvestigates": [25,60,100],
+         "TimeCostInvest": 1,
+         "actionAccept": "Neutral",
+         "actionRefused": "GoodBluff",
+         "actionLeave": "Neutral"
+      },
+      {
+         "Type": "Attack",
+         "Dialogue": ["You shouldn't have come here..."],
+         "Fight": true,
+         "ActionSearch": false,
+         "TimeCostA": 1,
+         "Intentions": true,
+         "ActionInvestigates": null,
+         "TimeCostInvest": null,
+         "actionAccept": null,
+         "actionRefused": null,
+         "actionLeave": null
+      },
+      {
+         "Type": "None",
+         "Dialogue": ["I don't see anyone here. Thank God.","It's quiet, too quit. Let's hurry up."],
+         "Fight": false,
+         "ActionSearch": true,
+         "TimeCostA": 2,
+         "Intentions": false,
+         "ActionInvestigates": null,
+         "TimeCostInvest": null,
+         "actionAccept": null,
+         "actionRefused": null,
+         "actionLeave": null
+      }
+   ],
+   "results": [
+      {
+         "Type": "Good",
+         "Name": "Gain Energy",
+         "Text": ["During this expedition you gained: ","You fill happy that luck may be on your side. You feel a boost in energy.","You are glad not everyone has turned to crime.","They look at you with a big smile as you leave. You smile back."],
+         "FightWin": false,
+         "Health": 0,
+         "Energy": 2,
+         "ExtraItemGain": true,
+         "ItemLoss": false
+      },
+      {
+         "Type": "Good",
+         "Name": "Gain Items",
+         "Text": ["During this expedition you gained: ","They are so grateful they give you some of their surplus.","They are happy you are not there to attack them; they give you some items for your travels.","They think you look like a nice person. They hid a gift in your caravan."],
+         "FightWin": false,
+         "Health": 0,
+         "Energy": 0,
+         "ExtraItemGain": true,
+         "ItemLoss": false
+      },
+      {
+         "Type": "GoodBluff",
+         "Name": "Find Bluff",
+         "Text": ["During this expedition you gained: ","You call their bluff and they step back, ashamed. They give you some items to apologize.","They freeze, obviously confused. You take some of their items and they stand there, paralyzed.","They try to double down on their bluff, but it fails. You leave with some extra items."],
+         "FightWin": false,
+         "Health": 0,
+         "Energy": 0,
+         "ExtraItemGain": true,
+         "ItemLoss": false
+      },
+      {
+         "Type": "Bad",
+         "Name": "Fight Lost",
+         "Text": ["They attacked you and were better equipped. You managed to go back to the caravan but are hurt.","They started a fight and you could not beat them. You barely escaped.","How could you lose? You think you should maybe just stop trying…"],
+         "FightWin": false,
+         "Health": -5,
+         "Energy": -2,
+         "ExtraItemGain": false,
+         "ItemLoss": false
+      },
+      {
+         "Type": "Bad",
+         "Name": "Fight Won",
+         "Text": ["You managed to fight back without a scratch. You better get back on the road.","They attacked you but could match your equipment. They are dead now.","You barely made it out alive. You are quite in shock."],
+         "FightWin": true,
+         "Health": 0,
+         "Energy": -1,
+         "ExtraItemGain": false,
+         "ItemLoss": false
+      },
+      {
+         "Type": "Bad",
+         "Name": "Lost Items",
+         "Text": ["You came back having lost: ","They stole from you while you were not looking. You are lucky they are not violent.","The are missing some items. Looks like you have been burgled."],
+         "FightWin": false,
+         "Health": 0,
+         "Energy": 0,
+         "ExtraItemGain": false,
+         "ItemLoss": true
+      },
+      {
+         "Type": "BadBluff",
+         "Name": "Bluff Fight",
+         "Text": ["You called their bluff and were wrong. You took them out as they were attacking you.","They were serious but you managed to overpower them."],
+         "FightWin": true,
+         "Health": 0,
+         "Energy": -2,
+         "ExtraItemGain": false,
+         "ItemLoss": false
+      },
+      {
+         "Type": "BadBluff",
+         "Name": "Bluff Fight Lost",
+         "Text": ["You came back having lost: ","You guessed wrong! They overpowered you and stole some items.","They were not kidding. They attacked you and took some items while laughing."],
+         "FightWin": false,
+         "Health": -5,
+         "Energy": -2,
+         "ExtraItemGain": false,
+         "ItemLoss": true
+      },
+      {
+         "Type": "Neutral",
+         "Name": "Walk away",
+         "Text": ["They stare at you without saying a word.","They turn back minding their business without paying more attention to you.","You could swear they want to attack you, but they do not move as you leave.","They look on edge and ready to flee. You leave without an incident."],
+         "FightWin": false,
+         "Health": 0,
+         "Energy": 0,
+         "ExtraItemGain": false,
+         "ItemLoss": false
+      }
+   ]
+}
