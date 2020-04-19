@@ -19,18 +19,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("SICK : " + PlayerStats.sickness);
+        print("SICK : " + Player.Sickness);
     }
 
     public void NewGame()
     {
-        PlayerStats.inGame = true;
-        PlayerStats.foodStock = new Dictionary<Item, int>();
-        PlayerStats.WaterStock = new Dictionary<Item, int>();
-        PlayerStats.medpackStock = new Dictionary<Item, int>();
-        PlayerStats.antibioticStock = new Dictionary<Item, int>();
-        PlayerStats.weaponStock = new Dictionary<Item, int>();
-        PlayerStats.protectionStock = new Dictionary<Item, int>();
+        Player.inGame = true;
+        Inventory.foodStock = new Dictionary<Item, int>();
+        Inventory.WaterStock = new Dictionary<Item, int>();
+        Inventory.medpackStock = new Dictionary<Item, int>();
+        Inventory.antibioticStock = new Dictionary<Item, int>();
+        Inventory.weaponStock = new Dictionary<Item, int>();
+        Inventory.protectionStock = new Dictionary<Item, int>();
         jsonManager.NewSave();
         LoadScene(1);
     }
@@ -55,6 +55,6 @@ public class GameManager : MonoBehaviour
     public void GameOver() 
     {
         LoadScene(4);
-        PlayerStats.inGame = false;
+        Player.inGame = false;
     }
 }

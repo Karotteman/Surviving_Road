@@ -2,37 +2,33 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class InventoryManager : MonoBehaviour
+public static class Inventory
 {
-    //Dictionary<Item, int> currentContainer;
-    int stackLimit = 10;
-    string currentTypeContainer;
-    string[] containerType = { "Medpack", "Antibiotic", "Protection", "Weapon", "Water", "Food" };
 
-    // Use this for initialization
-    void Start()
-    {
+    public static int fuelStock;
+    public static Dictionary<Item, int> foodStock;
+    public static Dictionary<Item, int> WaterStock;
+    public static Dictionary<Item, int> medpackStock;
+    public static Dictionary<Item, int> antibioticStock;
+    public static Dictionary<Item, int> weaponStock;
+    public static Dictionary<Item, int> protectionStock;
 
-    }
+    static int stackLimit = 10;
+    static string currentTypeContainer;
+    static string[] containerType = { "Medpack", "Antibiotic", "Protection", "Weapon", "Water", "Food" };
 
-    // Update is called once per frame
-    void Update()
-    {
+    //public static void UseItem()
+    //{
+    //    foreach(Item item in Player.item)
+    //    {
+    //        //if (item.Name == itemName)
+    //        //{
+    //        //    //var t
+    //        //}
+    //    }
+    //}
 
-    }
-
-    public void UseItem()
-    {
-        foreach(Item item in PlayerStats.item)
-        {
-            //if (item.Name == itemName)
-            //{
-            //    //var t
-            //}
-        }
-    }
-
-    public Dictionary<Item, int> LoadContainer(string type)
+    public static Dictionary<Item, int> LoadContainer(string type)
     {
         Dictionary<Item, int> currentContainer = GetContainer(type);
         if (currentContainer != null)
@@ -55,38 +51,49 @@ public class InventoryManager : MonoBehaviour
         return null;
     }
 
-    public Dictionary<Item, int> GetContainer(string type)
+    public static Dictionary<Item, int> GetContainer(string type)
     {
         switch (type)
         {
             case "Food":
                 currentTypeContainer = type;
-                return PlayerStats.foodStock;
+                return foodStock;
             case "Water":
                 currentTypeContainer = type;
-                return PlayerStats.WaterStock;
+                return WaterStock;
             case "Medpack":
                 currentTypeContainer = type;
-                return PlayerStats.medpackStock;
+                return medpackStock;
             case "Antibiotic":
                 currentTypeContainer = type;
-                return PlayerStats.antibioticStock;
+                return antibioticStock;
             case "Weapon":
                 currentTypeContainer = type;
-                return PlayerStats.weaponStock;
+                return weaponStock;
             case "Protection":
                 currentTypeContainer = type;
-                return PlayerStats.protectionStock;
-            default :
+                return protectionStock;
+            case "All":
+                Dictionary<Item, int> tempContainer = new Dictionary<Item, int>();
+                foreach (string tempType in containerType)
+                {
+                    foreach(KeyValuePair<Item, int> entry in GetContainer(tempType))
+                    {
+                        tempContainer.Add(entry.Key, entry.Value);
+                    }
+                }
+                return tempContainer;
+            default:
                 return null;
         }
     }
 
-    public void Pickup(Item item)
-    {        
+
+    public static void Pickup(Item item)
+    {
         if (item.Type == "Fuel")
         {
-            PlayerStats.fuelStock += item.Fuel;
+            fuelStock += item.Fuel;
         }
         else if (GetContainer(item.Type).ContainsKey(item) && item.Consumable)
         {
@@ -111,7 +118,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
-    public void Remove(Item item)
+    public static void Remove(Item item)
     {
         if (item.Type != "Fuel")
         {
@@ -133,7 +140,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void NextContainer()
+    public static void NextContainer()
     {
         for (int i = 0; i < containerType.Length; i++)
         {
@@ -152,7 +159,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void PreviousContainer()
+    public static void PreviousContainer()
     {
         for (int i = 0; i < containerType.Length; i++)
         {
@@ -171,7 +178,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void CleanContainer(Dictionary<Item, int> container)
+    public static void CleanContainer(Dictionary<Item, int> container)
     {
         foreach(KeyValuePair<Item, int> entry in container)
         {

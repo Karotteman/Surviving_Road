@@ -24,12 +24,12 @@ public class RoadScript : MonoBehaviour
     {
         if (assignedRoad != null)
         {
-            int fuelCost = PlayerStats.locationOptions[assignedRoad][0];
-            int timeCost = PlayerStats.locationOptions[assignedRoad][1];
+            int fuelCost = Player.locationOptions[assignedRoad][0];
+            int timeCost = Player.locationOptions[assignedRoad][1];
             uiManager.DisplayDescritpion(
                 assignedRoad.Description,
                 fuelCost,
-                (int)Mathf.Round(timeCost * PlayerStats.sickness + (timeCost - PlayerStats.health * timeCost)),
+                timeCost,
                 GetComponentInParent<RectTransform>().transform.position,
                 GetComponentInParent<RectTransform>().transform.localScale.x
                 );
@@ -44,9 +44,10 @@ public class RoadScript : MonoBehaviour
     {
         if (assignedRoad != null)
         {
-            PlayerStats.actualLocation = assignedRoad;
-            PlayerStats.actualEvent = PlayerStats.events[Random.Range(0, PlayerStats.events.Length)];
-            roadManager.UseRoad(PlayerStats.locationOptions[assignedRoad][0], PlayerStats.locationOptions[assignedRoad][1]);
+            Player.actualLocation = assignedRoad;
+            Player.actualEvent = Player.events[Random.Range(0, Player.events.Length)];
+            //Player.actualEvent = Player.events[8];
+            roadManager.UseRoad(Player.locationOptions[assignedRoad][0], Player.locationOptions[assignedRoad][1]);
         }
     }
 }

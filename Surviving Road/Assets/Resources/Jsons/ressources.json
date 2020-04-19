@@ -8,7 +8,7 @@
          "Consumable": true,
          "Fuel": null,
          "Health": 0.05,
-         "Sickness": 0.2,
+         "Sickness": 0.1,
          "Energy": 0,
          "Space": 1,
          "Damage": null,
@@ -37,8 +37,8 @@
          "DropRate": 60,
          "Consumable": true,
          "Fuel": null,
-         "Health": 0,
-         "Sickness": 0.1,
+         "Health": -0.05,
+         "Sickness": 0,
          "Energy": 1,
          "Space": 1,
          "Damage": null,
@@ -99,7 +99,7 @@
          "Fuel": null,
          "Health": 0,
          "Sickness": -0.1,
-         "Energy": 3,
+         "Energy": 0,
          "Space": 1,
          "Damage": null,
          "Protection": null,
@@ -114,7 +114,7 @@
          "Fuel": null,
          "Health": 0,
          "Sickness": -0.2,
-         "Energy": 6,
+         "Energy": 0,
          "Space": 1,
          "Damage": null,
          "Protection": null,
@@ -161,7 +161,7 @@
          "Sickness": null,
          "Energy": null,
          "Space": 2,
-         "Damage": 15,
+         "Damage": 0.15,
          "Protection": 0,
          "Image": "baseball bat"
       },
@@ -176,7 +176,7 @@
          "Sickness": null,
          "Energy": null,
          "Space": 1,
-         "Damage": 20,
+         "Damage": 0.2,
          "Protection": 0,
          "Image": "rusty knife"
       },
@@ -191,7 +191,7 @@
          "Sickness": null,
          "Energy": null,
          "Space": 1,
-         "Damage": 40,
+         "Damage": 0.4,
          "Protection": 0,
          "Image": "knife"
       },
@@ -206,7 +206,7 @@
          "Sickness": null,
          "Energy": null,
          "Space": 3,
-         "Damage": 50,
+         "Damage": 0.5,
          "Protection": 0,
          "Image": "blade"
       },
@@ -221,7 +221,7 @@
          "Sickness": null,
          "Energy": null,
          "Space": 2,
-         "Damage": 80,
+         "Damage": 0.8,
          "Protection": 0,
          "Image": "PISTOL"
       },
@@ -236,7 +236,7 @@
          "Sickness": null,
          "Energy": null,
          "Space": 4,
-         "Damage": 100,
+         "Damage": 1,
          "Protection": 0,
          "Image": "shotgun"
       },
@@ -252,7 +252,7 @@
          "Energy": null,
          "Space": 2,
          "Damage": 0,
-         "Protection": 20,
+         "Protection": 0.2,
          "Image": "jacket"
       },
       {
@@ -267,7 +267,7 @@
          "Energy": null,
          "Space": 3,
          "Damage": 0,
-         "Protection": 30,
+         "Protection": 0.3,
          "Image": "thick coat"
       },
       {
@@ -282,7 +282,7 @@
          "Energy": null,
          "Space": 5,
          "Damage": 0,
-         "Protection": 45,
+         "Protection": 0.45,
          "Image": "homemade armor"
       },
       {
@@ -297,7 +297,7 @@
          "Energy": null,
          "Space": 8,
          "Damage": 0,
-         "Protection": 70,
+         "Protection": 0.7,
          "Image": "bulletproof vest"
       },
       {
@@ -312,7 +312,7 @@
          "Energy": null,
          "Space": 10,
          "Damage": 0,
-         "Protection": 90,
+         "Protection": 0.9,
          "Image": "swat gear"
       }
    ],
@@ -381,7 +381,7 @@
    "events": [
       {
          "Type": "Trade",
-         "Dialogue": ["Morning Stranger, care to trade some items?","Hoddy! If you want we can exchange some items."],
+         "Dialogue": ["Morning Stranger, care to trade some items?","Hoddy! If you want we can exchange some items"],
          "InvestigationDialogue": ["You cannot tell if they are saying the truth.","You are certain they are not lying."],
          "Fight": false,
          "ActionSearch": true,
@@ -391,11 +391,12 @@
          "TimeCostInvest": 1,
          "actionAccept": "Good",
          "actionRefused": "Neutral",
-         "actionLeave": "Neutral"
+         "actionLeave": "Neutral",
+         "Resolved": false
       },
       {
          "Type": "Trade",
-         "Dialogue": ["Morning Stranger, care to trade some items?","Hoddy! If you want we can exchange some items."],
+         "Dialogue": ["Morning Stranger, care to trade some items?","Hoddy! If you want we can exchange some items"],
          "InvestigationDialogue": ["You cannot tell if they are saying the truth.","They are bluffing and it's now really obvious."],
          "Fight": false,
          "ActionSearch": true,
@@ -405,11 +406,12 @@
          "TimeCostInvest": 1,
          "actionAccept": "Bad",
          "actionRefused": "Neutral",
-         "actionLeave": "Neutral"
+         "actionLeave": "Neutral",
+         "Resolved": false
       },
       {
          "Type": "WantHelp",
-         "Dialogue": ["Can you spare some items? I need to help my family.","I Beg you to help me, I'll die if you don't."],
+         "Dialogue": ["Can you spare some items? I need to help my family.","I Beg you to help me, I'll die if you don't"],
          "InvestigationDialogue": ["You cannot tell if they are saying the truth.", "You are certain they are not lying."],
          "Fight": false,
          "ActionSearch": true,
@@ -419,11 +421,12 @@
          "TimeCostInvest": 1,
          "actionAccept": "Good",
          "actionRefused": "Neutral",
-         "actionLeave": "Neutral"
+         "actionLeave": "Neutral",
+         "Resolved": false
       },
       {
          "Type": "WantHelp",
-         "Dialogue": ["Can you spare some items? I need to help my family.","I Beg you to help me, I'll die if you don't."],
+         "Dialogue": ["Can you spare some items? I need to help my family.","I Beg you to help me, I'll die if you don't"],
          "InvestigationDialogue": ["You cannot tell if they are saying the truth.","They are bluffing and it's now really obvious."],
          "Fight": false,
          "ActionSearch": true,
@@ -433,11 +436,12 @@
          "TimeCostInvest": 1,
          "actionAccept": "Bad",
          "actionRefused": "Neutral",
-         "actionLeave": "Neutral"
+         "actionLeave": "Neutral",
+         "Resolved": false
       },
       {
          "Type": "Toll",
-         "Dialogue": ["There's a fee for snooping around here. Pay up or leave.", "If you wish to search this place, you'll need to give us something."],
+         "Dialogue": ["There's a fee for snooping around here. Pay up or leave.", "If you wish to search this place, you'll need to give us something"],
          "InvestigationDialogue": ["You cannot tell if they are saying the truth.", "You are certain they are not lying."],
          "Fight": false,
          "ActionSearch": false,
@@ -447,11 +451,12 @@
          "TimeCostInvest": 1,
          "actionAccept": "Good",
          "actionRefused": "BadBluff",
-         "actionLeave": "Neutral"
+         "actionLeave": "Neutral",
+         "Resolved": false
       },
       {
          "Type": "Toll",
-         "Dialogue": ["There's a fee for snooping around here. Pay up or leave.", "If you wish to search this place, you'll need to give us something."],
+         "Dialogue": ["There's a fee for snooping around here. Pay up or leave.", "If you wish to search this place, you'll need to give us something"],
          "InvestigationDialogue": ["You cannot tell if they are saying the truth.","They are bluffing and it's now really obvious."],
          "Fight": false,
          "ActionSearch": false,
@@ -461,7 +466,8 @@
          "TimeCostInvest": 1,
          "actionAccept": "Bad",
          "actionRefused": "GoodBluff",
-         "actionLeave": "Neutral"
+         "actionLeave": "Neutral",
+         "Resolved": false
       },
       {
          "Type": "Agressive",
@@ -475,7 +481,8 @@
          "TimeCostInvest": 1,
          "actionAccept": "Neutral",
          "actionRefused": "BadBluff",
-         "actionLeave": "Neutral"
+         "actionLeave": "Neutral",
+         "Resolved": false
       },
       {
          "Type": "Agressive",
@@ -489,7 +496,8 @@
          "TimeCostInvest": 1,
          "actionAccept": "Neutral",
          "actionRefused": "GoodBluff",
-         "actionLeave": "Neutral"
+         "actionLeave": "Neutral",
+         "Resolved": false
       },
       {
          "Type": "Attack",
@@ -503,21 +511,23 @@
          "TimeCostInvest": null,
          "actionAccept": null,
          "actionRefused": null,
-         "actionLeave": null
+         "actionLeave": null,
+         "Resolved": true
       },
       {
          "Type": "None",
          "Dialogue": ["I don't see anyone here. Thank God.","It's quiet, too quit. Let's hurry up."],
          "InvestigationDialogue": null,
-         "Fight": false,
+         "Fight": null,
          "ActionSearch": true,
          "TimeCostA": 2,
-         "Intentions": false,
+         "Intentions": null,
          "ActionInvestigates": null,
          "TimeCostInvest": null,
          "actionAccept": null,
          "actionRefused": null,
-         "actionLeave": null
+         "actionLeave": null,
+         "Resolved": true
       }
    ],
    "results": [

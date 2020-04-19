@@ -5,6 +5,7 @@ using UnityEngine;
 public class RoadManager : MonoBehaviour
 {
     PlayerManager playerManager;
+    public GameManager gameManager;
     //List<Road> roads;
     int nbRoadMin = 2;
     int nbRoadMax = 4;
@@ -13,7 +14,7 @@ public class RoadManager : MonoBehaviour
     void Start()
     {
         playerManager = GetComponent<PlayerManager>();
-        if(PlayerStats.locationOptions == null)
+        if(Player.locationOptions == null)
         {
             GenerateRoad();
         }
@@ -27,14 +28,16 @@ public class RoadManager : MonoBehaviour
 
     public void UseRoad(int fuel, int time)
     {
-        PlayerStats.fuelStock -= fuel;
-        playerManager.TimeSpent(time);
+        Inventory.fuelStock -= fuel;
+        Player.TimeSpent(time);
+        playerManager.StillAlive();
         GenerateRoad();
+        if (Player.inGame) gameManager.LoadScene(3);
     }
 
     public void GenerateRoad()
     {
-        PlayerStats.locationOptions = new Dictionary<Road, int[]>();
+        Player.locationOptions = new Dictionary<Road, int[]>();
         for (int i = 0; i < Random.Range(nbRoadMin, nbRoadMax+1); i++)
         {
             AddRoadToOptions();
@@ -44,15 +47,15 @@ public class RoadManager : MonoBehaviour
 
     void AddRoadToOptions()
     {
-        Road roadTemp = PlayerStats.roads[Random.Range(0, PlayerStats.roads.Length)];
+        Road roadTemp = Player.roads[Random.Range(0, Player.roads.Length)];
         int fuelUse = Random.Range(roadTemp.FuelMin, roadTemp.FuelMax + 1);
         int timeUse = Random.Range(roadTemp.TimeMin, roadTemp.TimeMax + 1);
         int[] Costs = { fuelUse, timeUse };
-        if (PlayerStats.locationOptions.ContainsKey(roadTemp))
+        if (Player.locationOptions.ContainsKey(roadTemp))
         {
             AddRoadToOptions();
             return;
         }
-        PlayerStats.locationOptions.Add(roadTemp, Costs);
+        Player.locationOptions.Add(roadTemp, Costs);
     }
 }

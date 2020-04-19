@@ -5,37 +5,31 @@ using System.Collections.Generic;
 
 public class JsonManager : MonoBehaviour
 {
-    //Ressources ressources;
-    InventoryManager inventoryManager;
 
     // Use this for initialization
     void Start()
     {
-        inventoryManager = GetComponent<InventoryManager>();
-        //Field res = JsonUtility.FromJson<Field>(File.ReadAllText("./Assets/Resources/Jsons/ressources.json"));
         Field res = JsonUtility.FromJson<Field>(Resources.Load<TextAsset>("Jsons/ressources").ToString());
-        PlayerStats.item = res.item;
-        PlayerStats.roads = res.road;
-        PlayerStats.events = res.events;
-        PlayerStats.results = res.results;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        Player.item = res.item;
+        Player.roads = res.road;
+        Player.events = res.events;
+        Player.results = res.results;
     }
 
     public void NewSave()
     {
-        //Field res = JsonUtility.FromJson<Field>(File.ReadAllText("./Assets/Resources/Jsons/initialState.json"));
         Field res = JsonUtility.FromJson<Field>(Resources.Load<TextAsset>("Jsons/initialState").ToString());
-        foreach (Item item in res.item)
+        foreach (string itemName in res.initialItem)
         {
-            inventoryManager.Pickup(item);
+            Inventory.Pickup(Player.GetItem(itemName));
         }
-        PlayerStats.health = res.health;
-        PlayerStats.energy = res.energy;
-        PlayerStats.sickness = res.sickness;
+        Player.Health = res.health;
+        Player.Sickness = res.sickness;
+        Player.Energy = res.energy;
+        Inventory.fuelStock = res.fuelStock;
+        Player.equippedWeapon = null;
+        Player.equippedProtection = null;
+        Player.actualLocation = res.actualLocation;
+        Player.actualEvent = res.actualEvent;
     }
 }

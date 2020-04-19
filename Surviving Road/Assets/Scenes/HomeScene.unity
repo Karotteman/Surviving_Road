@@ -1074,10 +1074,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 300933007}
-  - component: {fileID: 300933008}
   - component: {fileID: 300933009}
   m_Layer: 0
-  m_Name: SideManager
+  m_Name: PlayerManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1097,18 +1096,6 @@ Transform:
   m_Father: {fileID: 1023556879}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &300933008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 300933006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 299711569b6ecfe479a00eb0ff089d3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &300933009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9112,7 +9099,6 @@ MonoBehaviour:
   itemDescriptionPanel: {fileID: 1739497611}
   timeLeft: {fileID: 7103485414736389711}
   roads: {fileID: 0}
-  inventoryManager: {fileID: 300933008}
   dialogues: {fileID: 0}
   background: {fileID: 0}
   eventManager: {fileID: 0}

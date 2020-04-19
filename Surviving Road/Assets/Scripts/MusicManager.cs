@@ -40,7 +40,6 @@ public class MusicManager : MonoBehaviour
                 tempoClip = null;
                 break;
         }
-        print(tempoClip.name+"  //////  "+ audioSource.clip.name);
         if (audioSource.clip.name != tempoClip.name)
         {
             audioSource.clip = tempoClip;

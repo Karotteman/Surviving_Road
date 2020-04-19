@@ -1032,7 +1032,7 @@ PrefabInstance:
     - target: {fileID: 6458542131952747183, guid: d18a6cb5e69c55a4995e1a77563efc31,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6458542131952747183, guid: d18a6cb5e69c55a4995e1a77563efc31,
         type: 3}
@@ -1333,7 +1333,7 @@ PrefabInstance:
     - target: {fileID: 6458542131952747183, guid: d18a6cb5e69c55a4995e1a77563efc31,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6458542131952747183, guid: d18a6cb5e69c55a4995e1a77563efc31,
         type: 3}
@@ -1408,6 +1408,11 @@ PrefabInstance:
     - target: {fileID: 6458542131952747183, guid: d18a6cb5e69c55a4995e1a77563efc31,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458542131952747183, guid: d18a6cb5e69c55a4995e1a77563efc31,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7535628286956469862, guid: d18a6cb5e69c55a4995e1a77563efc31,
@@ -1673,6 +1678,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458542131952747183, guid: d18a6cb5e69c55a4995e1a77563efc31,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7535628286956469862, guid: d18a6cb5e69c55a4995e1a77563efc31,
         type: 3}
@@ -2122,6 +2132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114e75d13291d344eab83a39d1bbdba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 399683887}
 --- !u!114 &1659134715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2373,7 +2384,6 @@ MonoBehaviour:
   itemDescriptionPanel: {fileID: 332970938}
   timeLeft: {fileID: 1623059234}
   roads: {fileID: 34518195}
-  inventoryManager: {fileID: 0}
   dialogues: {fileID: 0}
   background: {fileID: 0}
   eventManager: {fileID: 0}
@@ -2515,7 +2525,7 @@ PrefabInstance:
     - target: {fileID: 6458542131952747183, guid: d18a6cb5e69c55a4995e1a77563efc31,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6458542131952747183, guid: d18a6cb5e69c55a4995e1a77563efc31,
         type: 3}

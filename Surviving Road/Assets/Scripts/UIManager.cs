@@ -12,7 +12,6 @@ public class UIManager : MonoBehaviour
     public Transform itemDescriptionPanel;
     public Text timeLeft;
     public Transform roads;
-    public InventoryManager inventoryManager;
 
 
     [Header("Events UI")]
@@ -36,13 +35,12 @@ public class UIManager : MonoBehaviour
                 DisplayRoads();
                 break;
             case "EventScene":
-                print(PlayerStats.actualLocation.Background);
-                Sprite currentSprite = Resources.Load<Sprite>("Images/Backgrounds/" + PlayerStats.actualLocation.Background);
+                Sprite currentSprite = Resources.Load<Sprite>("Images/Backgrounds/" + Player.actualLocation.Background);
                 background.sprite = currentSprite;
                 DisplayDialogues(); //Fonction pour afficher les dialogues
                 DisplayButtons(); //Fonction pour afficher les boutons
                 // pour le song, c'est pas propre du tout, mais c'est rapide
-                if (PlayerStats.actualEvent.Fight)
+                if (Player.actualEvent.Fight)
                 {
                     GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().SwitchMusic("battle");
                 }
@@ -53,7 +51,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeLeft.text = PlayerStats.energy + "H  "+ (int)Mathf.Round(PlayerStats.health*100)+"Life";
+        timeLeft.text = Player.Energy + "H  "+ (int)Mathf.Round(Player.Health*100)+"Life";
     }
 
     /////////////////////////// DOMINIC ///////////////////////////////////
@@ -61,7 +59,7 @@ public class UIManager : MonoBehaviour
     {
         if (!GotDialogue)
         {
-            dialogues.text = PlayerStats.actualEvent.Dialogue[Random.Range(0, PlayerStats.actualEvent.Dialogue.Length)];
+            dialogues.text = Player.actualEvent.Dialogue[Random.Range(0, Player.actualEvent.Dialogue.Length)];
             GotDialogue = true;
         }
         
@@ -70,25 +68,31 @@ public class UIManager : MonoBehaviour
 
     public void DisplayButtons()
     {
-        print(PlayerStats.actualEvent.Type + " is " + PlayerStats.actualEvent.ActionSearch);
+        print(Player.actualEvent.Type + " is " + Player.actualEvent.Fight);
         //Active le bouton search si actionSearch est vrai
-        buttonHolder.GetChild(0).gameObject.SetActive(PlayerStats.actualEvent.ActionSearch);
-
-        if (PlayerStats.actualEvent.Type == "None" || PlayerStats.actualEvent.Type == "Fight")
+        if (!Player.actualEvent.Resolved)
         {
-            buttonHolder.GetChild(1).gameObject.SetActive(false);
-            buttonHolder.GetChild(2).gameObject.SetActive(false);
-            buttonHolder.GetChild(3).gameObject.SetActive(false);
+            if (Player.actualEvent.ActionInvestigates == null)
+            {
+                buttonHolder.GetChild(3).gameObject.SetActive(false);
+            }
+            buttonHolder.GetChild(0).gameObject.SetActive(false);
         }
-        
-        buttonHolder.GetChild(4).gameObject.SetActive(!PlayerStats.actualEvent.Fight);
+        else
+        {
+            buttonHolder.GetChild(0).gameObject.SetActive(Player.actualEvent.ActionSearch);
+        }
+        buttonHolder.GetChild(1).gameObject.SetActive(!Player.actualEvent.Resolved);
+        buttonHolder.GetChild(2).gameObject.SetActive(!Player.actualEvent.Resolved);
 
-        buttonHolder.GetChild(5).gameObject.SetActive(PlayerStats.actualEvent.Fight);
+        buttonHolder.GetChild(4).gameObject.SetActive(!Player.actualEvent.Fight);
+
+        buttonHolder.GetChild(5).gameObject.SetActive(Player.actualEvent.Fight);
         // Affiche le nom de l'arme dans le bouton
         string weaponName = "your own hands";
-        if (PlayerStats.equippedWeapon != null)
+        if (Player.equippedWeapon != null)
         {
-            weaponName = PlayerStats.equippedWeapon.Name;
+            weaponName = Player.equippedWeapon.Name;
         }
         buttonHolder.GetChild(5).GetChild(0).GetComponent<Text>().text = "Fight back with "+ weaponName + "!";
 
@@ -99,7 +103,7 @@ public class UIManager : MonoBehaviour
     {
         CleanRoads();
         int i = 0;
-        foreach (KeyValuePair<Road,int[]> option in PlayerStats.locationOptions)
+        foreach (KeyValuePair<Road,int[]> option in Player.locationOptions)
         {
             Transform tempRoad = roads.GetChild(i);
 
@@ -107,7 +111,7 @@ public class UIManager : MonoBehaviour
             tempRoad.gameObject.SetActive(true);
             tempRoad.GetChild(0).GetComponent<Text>().text = option.Key.Name;
 
-            if(option.Value[0] > PlayerStats.fuelStock || option.Value[1] > PlayerStats.energy)
+            if(option.Value[0] > Inventory.fuelStock || option.Value[1] > Player.Energy)
             {
                 tempRoad.GetComponent<Button>().interactable = false;
             }
@@ -166,7 +170,7 @@ public class UIManager : MonoBehaviour
             {
                 itemRenderer.transform.GetChild(0).GetComponent<Text>().text = entry.Value.ToString();
             }
-            else if(entry.Key.Equals(PlayerStats.equippedProtection) || entry.Key.Equals(PlayerStats.equippedWeapon))
+            else if(entry.Key.Equals(Player.equippedProtection) || entry.Key.Equals(Player.equippedWeapon))
             {
                 itemRenderer.transform.GetChild(0).GetComponent<Text>().text = "E";
             }
@@ -175,7 +179,7 @@ public class UIManager : MonoBehaviour
     }
     public void DisplayContainer(string type)
     {
-        Dictionary<Item, int> container = inventoryManager.LoadContainer(type);
+        Dictionary<Item, int> container = Inventory.LoadContainer(type);
 
         if (sleepWarningPanel.activeSelf)
         {

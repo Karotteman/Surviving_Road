@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public class Item
 {
     public string Name, Type, Description, Image;
-    public int Fuel, Energy, Space, Damage, Protection, DropRate;
-    public float Health, Sickness;
+    public int Fuel, Space, DropRate;
+    public float Damage, Protection, Energy, Health, Sickness;
     public bool Consumable;
 
     public override int GetHashCode()
@@ -39,7 +39,7 @@ public class Event
 {
     public string Type, actionAccept, actionRefused, actionLeave;
     public int TimeCostA, TimeCostInvest;
-    public bool Fight, ActionSearch, Intentions;
+    public bool Fight, ActionSearch, Intentions, Resolved;
     public string[] Dialogue, InvestigationDialogue;
     public int[] ActionInvestigates;
 }
@@ -58,7 +58,13 @@ public class Field
     public float health;
     public int energy;
     public float sickness;
+    public int fuelStock;
+    public Item equippedWeapon;
+    public Item equippedProtection;
+    public Road actualLocation;
+    public Event actualEvent;
     public Item[] item;
+    public string[] initialItem;
     public Road[] road;
     public Event[] events;
     public Result[] results;

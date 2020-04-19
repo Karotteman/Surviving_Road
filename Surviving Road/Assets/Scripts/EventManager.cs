@@ -7,7 +7,6 @@ public class EventManager : MonoBehaviour
     public Sprite[] characterList;
     public GameObject characterSpace;
     public PlayerManager playerManager; // Utile pour utiliser un item, faire passer le temps ou simplement vérifier que le joueur est toujour vivant
-    public InventoryManager inventoryManager; // Permet de manipuler facilement l'inventaire du joueur
     public UIManager uIManager; // La j'ai pas d'excuses, c'est juste que j'ai la flemme de faire autrement
 
     private SpriteRenderer spriteR;
@@ -15,12 +14,14 @@ public class EventManager : MonoBehaviour
     // Désolé, je m'incruste
     private int nbLootMin = 0;
     private int nbLootMax = 5;
+    private int nbLostItemMax = 3;
+    private int nbInvesgation = 0;
     private float ennemiLife = 1; // IMMONDE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     void Start()
     {
         //Add Random Character
-        if (PlayerStats.actualEvent.Type != "None")
+        if (Player.actualEvent.Type != "None")
         {
             Sprite Encounter = RandoCharacter();
             spriteR = characterSpace.GetComponent<SpriteRenderer>();
@@ -43,19 +44,23 @@ public class EventManager : MonoBehaviour
     //HERE --- It works but I can't have it display the text
     public void Investigate()
     {
-        playerManager.TimeSpent(PlayerStats.actualEvent.TimeCostInvest);
+        Player.TimeSpent(Player.actualEvent.TimeCostInvest);
         int pokerFace = Random.Range(0, 100);
+        string truth;
 
-        if(pokerFace >= PlayerStats.actualEvent.ActionInvestigates[0])
+        if (pokerFace <= Player.actualEvent.ActionInvestigates[nbInvesgation])
         {
-            string truth = PlayerStats.actualEvent.InvestigationDialogue[1];
-            uIManager.DisplayDialogues(truth);
+            truth = Player.actualEvent.InvestigationDialogue[1];
+            Player.actualEvent.ActionInvestigates = null;
         }
         else
         {
-            string truth = PlayerStats.actualEvent.InvestigationDialogue[0];
-            uIManager.DisplayDialogues(truth);
+            truth = Player.actualEvent.InvestigationDialogue[0];
+            nbInvesgation++;
         }
+        uIManager.DisplayDialogues(truth);
+        uIManager.DisplayButtons();
+        playerManager.StillAlive();
     }
 
     /// <summary>
@@ -63,36 +68,39 @@ public class EventManager : MonoBehaviour
     /// </summary>
     public void Fight()
     {
-        playerManager.TimeSpent(PlayerStats.actualEvent.TimeCostA);
-        Item ennemiWeapon = PlayerStats.GetRandomItem("Weapon", 2);
-        Item ennemiProtection = PlayerStats.GetRandomItem("Protection", 3);
+        Player.TimeSpent(Player.actualEvent.TimeCostA);
+        Item ennemiWeapon = Player.GetRandomItem("Weapon", 2);
+        Item ennemiProtection = Player.GetRandomItem("Protection", 3);
         float damageGiven;
         float damageTaken = ennemiWeapon.Damage;
-        if (PlayerStats.equippedProtection != null) damageTaken -= PlayerStats.equippedProtection.Protection;
+        if (Player.equippedProtection != null) damageTaken -= Player.equippedProtection.Protection;
         if (damageTaken < 0) damageTaken = 0;
-        playerManager.SetHealth(-damageTaken);
+        Player.Health -= damageTaken;
 
-        if (PlayerStats.equippedWeapon != null) damageGiven = PlayerStats.equippedWeapon.Damage;
+        if (Player.equippedWeapon != null) damageGiven = Player.equippedWeapon.Damage;
         else damageGiven = 0.1f;
         ennemiLife -= damageGiven;
 
+        print("TAKEN : " + damageTaken + "  ||  GIVEN : " + damageGiven);
+
+        string feedback;
         playerManager.StillAlive();
         if (ennemiLife <= 0)
         {
-            PlayerStats.actualEvent.Fight = false;
+            Player.actualEvent.Fight = false;
             spriteR.gameObject.SetActive(false);
             GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().SwitchMusic("main");
+            feedback = Player.results[4].Text[Random.Range(0, Player.results[4].Text.Length)];
         }
         else
         {
-            string feedback;
             if (damageGiven > damageTaken)
             {
-                feedback = PlayerStats.results[4].Text[Random.Range(0, PlayerStats.results[4].Text.Length)];
+                feedback = Player.results[4].Text[Random.Range(0, Player.results[4].Text.Length)];
             }
             else
             {
-                feedback = PlayerStats.results[3].Text[Random.Range(0, PlayerStats.results[3].Text.Length)];
+                feedback = Player.results[3].Text[Random.Range(0, Player.results[3].Text.Length)];
             }
             uIManager.DisplayDialogues(feedback);
         }
@@ -104,26 +112,87 @@ public class EventManager : MonoBehaviour
     /// </summary>
     public void Reaction(string reaction)
     {
-        string feedbacks;
+        string feedback;
+        feedback = Player.results[8].Text[Random.Range(0, Player.results[8].Text.Length)];
         switch (reaction)
         {
             case "accept":
-                switch (PlayerStats.actualEvent.actionAccept)
+                switch (Player.actualEvent.actionAccept)
                 {
                     case "Good":
+                        feedback = Player.results[1].Text[Random.Range(0, Player.results[4].Text.Length)];
+                        Loot();
                         break;
                     case "Neutral":
+                        feedback = Player.results[8].Text[Random.Range(0, Player.results[8].Text.Length)];
                         break;
                     case "Bad":
+                        feedback = Player.results[5].Text[Random.Range(0, Player.results[5].Text.Length)];
+                        LooseItem();
                         break;
                 }
                 break;
             case "refuse":
+                switch (Player.actualEvent.actionRefused)
+                {
+                    case "GoodBluff":
+                        feedback = Player.results[2].Text[Random.Range(0, Player.results[2].Text.Length)];
+                        Loot();
+                        break;
+                    case "Neutral":
+                        feedback = Player.results[8].Text[Random.Range(0, Player.results[8].Text.Length)];
+                        break;
+                    case "BadBluff":
+                        feedback = Player.results[7].Text[Random.Range(0, Player.results[7].Text.Length)];
+                        LooseItem();
+                        Player.actualEvent.Fight = true;
+                        break;
+                }
                 break;
             case "leave":
+                switch (Player.actualEvent.actionRefused)
+                {
+                    case "Neutral":
+                        feedback = Player.results[8].Text[Random.Range(0, Player.results[8].Text.Length)];
+                        break;
+                }
+                break;
+            default :
+                feedback = Player.results[8].Text[Random.Range(0, Player.results[8].Text.Length)];
                 break;
         }
-        //uIManager.DisplayDialogues(feedbacks);
+        Player.TimeSpent(Player.actualEvent.TimeCostA);
+        playerManager.StillAlive();
+        uIManager.DisplayDialogues(feedback);
+        Player.actualEvent.Resolved = true;
+        uIManager.DisplayButtons();
+    }
+
+    /// <summary>
+    /// Remove a list of Item into the inventory of the player
+    /// </summary>
+    public void LooseItem()
+    {
+        Item[] lostItem = new Item[Random.Range(1, nbLostItemMax)];
+        List<Item> lostableItem = new List<Item>();
+        foreach(KeyValuePair<Item, int> entry in Inventory.GetContainer("All"))
+        {
+            for (int j = 0; j < entry.Value; j++)
+            {
+                if(Player.equippedWeapon != entry.Key && Player.equippedProtection != entry.Key)
+                {
+                    lostableItem.Add(entry.Key);
+                }
+            }
+        }
+
+        for (int i = 0; i < lostItem.Length; i++)
+        {
+            int y = Random.Range(0, lostableItem.Count);
+            lostItem[i] = lostableItem[y];
+            Inventory.Remove(lostableItem[y]);
+        }
+        uIManager.DisplayDialogues(lostItem);
     }
 
     /// <summary>
@@ -132,13 +201,14 @@ public class EventManager : MonoBehaviour
     public void Loot()
     {
         Item[] loot = GetLoot();
-        foreach(Item item in loot)
+        foreach (Item item in loot)
         {
-            inventoryManager.Pickup(item);
+            Inventory.Pickup(item);
         }
         uIManager.DisplayDialogues(loot);
-        PlayerStats.actualEvent.ActionSearch = false;
-        playerManager.TimeSpent(PlayerStats.actualEvent.TimeCostA);
+        Player.actualEvent.ActionSearch = false;
+        Player.TimeSpent(Player.actualEvent.TimeCostA);
+        playerManager.StillAlive();
         uIManager.DisplayButtons();
     }
 
@@ -150,10 +220,10 @@ public class EventManager : MonoBehaviour
     {
         Item[] loot = new Item[Random.Range(nbLootMin, nbLootMax)];
         List<List<Item>> lootableItem = new List<List<Item>>();
-        for (int i =0; i < PlayerStats.actualLocation.LootRate.Length; i++)
+        for (int i =0; i < Player.actualLocation.LootRate.Length; i++)
         {
-            Item[] tempItemArray = PlayerStats.GetItemList(PlayerStats.actualLocation.LootRate[i].Loot);
-            for(int k = 0; k < PlayerStats.actualLocation.LootRate[i].DropRate; k++)
+            Item[] tempItemArray = Player.GetItemList(Player.actualLocation.LootRate[i].Loot);
+            for(int k = 0; k < Player.actualLocation.LootRate[i].DropRate; k++)
             {
                 lootableItem.Add(new List<Item>());
                 for (int j = 0; j < tempItemArray.Length - 1; j++)

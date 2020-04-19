@@ -25,7 +25,7 @@ public class ItemScript : MonoBehaviour
         {
             case "Fuel":
                 uiManager.DisplayDescritpion(
-                    PlayerStats.fuelStock+" Fuel",
+                    Inventory.fuelStock+" Fuel",
                     "",
                     GetComponentInParent<RectTransform>().transform.position,
                     GetComponentInParent<RectTransform>().transform.localScale.x
@@ -56,7 +56,7 @@ public class ItemScript : MonoBehaviour
         if (assignedItem != null)
         {
             playerManager.UseItem(assignedItem);
-            uiManager.RefreshContainer(uiManager.inventoryManager.GetContainer(assignedItem.Type));
+            uiManager.RefreshContainer(Inventory.GetContainer(assignedItem.Type));
         }
     }
 }

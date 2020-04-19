@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
@@ -6,7 +7,6 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public GameManager gameManager;
-    InventoryManager inventoryManager;
     int sleepTimeMin = 1;
     int sleepTimeMax = 12;
     float regen = 0.05f;
@@ -14,28 +14,25 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inventoryManager = GetComponent<InventoryManager>();
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /// <summary>
+    /// Throw game over if is not
+    /// </summary>
     public void StillAlive()
     {
-        if (PlayerStats.health <= 0 || PlayerStats.energy <= 0)
+        if (Player.Health <= 0 || Player.Energy <= 0)
         {
             gameManager.GameOver();
         }
         else
         {
-            if (PlayerStats.energy <= 10 || PlayerStats.health <= 0.25)
+            if (Player.Energy <= 10 || Player.Health <= 0.25)
             {
                 GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().SwitchMusic("battle");
             }
-            else if (PlayerStats.energy > 10 && PlayerStats.health > 0.25)
+            else if (Player.Energy > 10 && Player.Health > 0.25)
             {
                 GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().SwitchMusic("main");
             }
@@ -44,72 +41,33 @@ public class PlayerManager : MonoBehaviour
 
     public void Sleep()
     {
-        int sleepTime = Random.Range(sleepTimeMin, sleepTimeMax);
-        TimeSpent(sleepTime, true);
-        if(PlayerStats.inGame) gameManager.LoadScene(1);
-    }
-
-    public void TimeSpent(int time, [Optional] bool sleeping)
-    {
-        if (sleeping)
-        {
-            PlayerStats.energy -= (int)Mathf.Round(time * PlayerStats.sickness);
-        }
-        else
-        {
-            PlayerStats.energy -= (int)Mathf.Round(time * PlayerStats.sickness + (time - PlayerStats.health * time));
-        }
-        if (PlayerStats.health < 1)
-        {
-            SetHealth( time * regen, false);
-        }
+        int sleepTime = UnityEngine.Random.Range(sleepTimeMin, sleepTimeMax);
+        Player.TimeSpent(sleepTime, true);
         StillAlive();
+        if(Player.inGame) gameManager.LoadScene(1);
     }
 
     public void UseItem(Item tempItem)
     {
         if (tempItem.Consumable)
         {
-            //print(tempItem.Health+ "H & E"+ tempItem.Energy);
-            PlayerStats.energy += tempItem.Energy;
-            SetHealth( tempItem.Health);
-            SetSickness(tempItem.Sickness);
-            inventoryManager.Remove(tempItem);
+            Player.Energy += tempItem.Energy;
+            Player.Health += tempItem.Health;
+            Player.Sickness += tempItem.Sickness;
+            Inventory.Remove(tempItem);
         }
         else
         {
             switch (tempItem.Type)
             {
                 case "Weapon":
-                    PlayerStats.equippedWeapon = tempItem;
+                    Player.equippedWeapon = tempItem;
                     break;
                 case "Protection":
-                    PlayerStats.equippedProtection = tempItem;
+                    Player.equippedProtection = tempItem;
                     break;
             }
         }
         StillAlive();
-    }
-
-    public void SetHealth(float health, [Optional] bool checkState)
-    {
-        PlayerStats.health += health;
-        if (PlayerStats.health > 1)
-        {
-            PlayerStats.health = 1;
-        }
-        else if (PlayerStats.health < 0)
-        {
-            PlayerStats.health = 0;
-        }
-        if(checkState)StillAlive();
-    }
-    public void SetSickness(float sickness)
-    {
-        PlayerStats.sickness += sickness;
-        if (PlayerStats.sickness < 0.1)
-        {
-            PlayerStats.sickness = 0.1f;
-        }
     }
 }
